@@ -1,6 +1,6 @@
 <?php
-	include_once("controller/LoginController.class.php");
-	$controle  = new LoginController();
+	include_once("controller/EntrouController.class.php");
+	$controle  = new EntrouController();
 
 	
 	$controle->sair();

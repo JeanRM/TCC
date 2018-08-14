@@ -1,3 +1,15 @@
+<?php
+	include_once("controller/EntrouController.class.php");
+	include_once("controller/MinhaContaController.class.php");
+	$controleEntrou  = new EntrouController();
+	$controleEntrou->verificaLogado();	
+
+	if (isset($_POST["MinhaConta"])){
+		$controle = new MinhaContaController();
+		$controle->buscaDados($_POST);		
+	}	
+?>
+
 <head>	    
 	<meta charset="utf-8">
 	<title>VelozMente</title>
@@ -15,8 +27,8 @@
 	</header>			  
 
 
-	<form method="POST">
-    	<button id="botao" class="btn btn-info" name="verificar" type="submit">
+	<form method="POST" action="minhaConta.php">
+    	<button id="botao" class="btn btn-info" name="MinhaConta" type="submit">
             <span class="nav-link-text">Minha Conta  </span>
             <i color="white" class="far fa-user fa-10px"></i>
       	</button>

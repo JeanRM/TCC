@@ -1,11 +1,4 @@
- <!DOCTYPE html>
- <html>
- <head>
- 	<title>Inicio</title>
- 	<link rel="stylesheet" href="../CSS/estilo-entrou.css"
- </head>
- <body>
- 	<?php 
+ <?php 
 	include_once ("model/Usuario.class.php");
 	include_once("includes/Conexao.class.php");
 	
@@ -46,30 +39,7 @@
 			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
 			$sqlPreparado->bindValue(":idcliente",$idCliente);
 			$sqlPreparado->execute();
-
-			while($lista = $sqlPreparado->fetch(PDO::FETCH_ASSOC)){
-				
-				?>
-				<div id="dados">
-					
-					<label for="nome">Nome</label>
-					<input name="nome" class="form-control Meu-Input" type="text" value="<?php echo $lista['nome_cliente']; ?>" name="nome" disabled> 
-
-					<label for="login">Login</label>
-					<input  name="login" type="text" value="<?php echo $lista['login_cliente']; ?>" disabled class="form-control Meu-Input"> 
-
-					<label for="senha">Senha</label>
-					<input name="senha" class="form-control Meu-Input" type="text" value="<?php echo $lista['senha_cliente']; ?>" name="nome" disabled>
-					<br>
-				</div>
-				<?php
-				
-			}
 		}
 		
 	}
  ?>
- </body>
- </html>
-
- 

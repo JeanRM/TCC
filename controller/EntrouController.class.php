@@ -2,12 +2,20 @@
 	include_once ("dao/DaoUsuario.class.php");
 	
 	class EntrouController{
-		public function buscaDados(){
+		public function verificaLogado(){
 			session_start();
-			$idCliente = $_SESSION['codigo'];
-			$dao = new DaoUsuario();
-			$dados = $dao->puxaDado($idCliente);
 
+			if($_SESSION['logado'] != true){
+				unset($_SESSION);
+				header("location: index.php?erro=true&msg= Realize seu login para acesar o site");
+			}
+		}
+
+		public function sair(){
+			session_start();
+			unset($_SESSION);
+			session_destroy();
+			header("location: index.php");
 		}
 	}		
  ?>

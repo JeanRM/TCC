@@ -1,7 +1,7 @@
 <?php
 	include_once("includes/Conexao.class.php");	
 
-	class DaoProduto {
+	class DaoProduto{
 		public function listarProdutos () {
 			$sql = "SELECT * FROM tb_entrega";
 			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
