@@ -1,5 +1,5 @@
 <?php
-	class Usuario{
+	class Entrega{
 		private $idEntrega;
 		private $produto;
 		private $entregador;
@@ -11,10 +11,10 @@
 		private $infoRemetente;
 		private $preco;
 
-		public function getIdUsuario(){
+		public function getIdEntrega(){
 			return $this->idEntrega;
 		}
-		public function setIdUsuario($idEntrega){
+		public function setIdEntrega($idEntrega){
 			$this->idEntrega = $idEntrega;
 		}		
 

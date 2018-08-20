@@ -12,8 +12,15 @@
 <body>
 	<?php
 		include_once("dao/DaoEntrega.class.php");
-		$dao = new DaoProduto();
-		$dao->listarProdutos();
+		include_once("model/Entregas.class.php");
+		$dao = new DaoEntrega();
+		$vetorDeProdutos= $dao->listarEntrega();
+
+		foreach ($vetorDeProdutos as $entrega) {
+		echo $entrega->getImagem()."<br>";
+		echo $entrega->getNome()."<br>";
+		echo $entrega->getStatus()."<br>";
+		}
 	?>	
 	<div id="entregas">	
 		<table class="table">
