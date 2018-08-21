@@ -8,7 +8,25 @@
 			$sqlPreparado->bindValue(":idcliente",$idCliente);
 			$sqlPreparado->execute();
 			$lista = $sqlPreparado->fetchAll(PDO::FETCH_ASSOC);
-			var_dump($lista);
+
+			$vetorDeObjetos = array();
+			foreach ($lista as $linha) {
+					$vetorDeObjetos [] = $this ->transformaDadosDoBancoEmObjeto ($linha);
+			} 
+			
+			return $vetorDeObjetos;
+		}
+
+		public function transformaDadosDoBancoEmObjeto($dadosDoBanco){
+			$usuario = new Usuario();
+			$usuario->setNome($dadosDoBanco['nome_cliente']);
+			$usuario->setSenha($dadosDoBanco['senha_cliente']);
+			$usuario->setCpf($dadosDoBanco['cpf_cliente']);
+			$usuario->setTelefone($dadosDoBanco['telefone_cliente']);
+			$usuario->setEmail($dadosDoBanco['email_cliente']);
+			$usuario->setSexo($dadosDoBanco['sexo_cliente']);
+			return $usuario;
+		
 		}
 	}
 

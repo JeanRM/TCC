@@ -140,17 +140,13 @@ ul li a:hover{
 #botao{
 	display:block;
 	position:absolute;
-	right:30px;
-	top:70px;
+	border-radius: 8px;
+	right:3%;
+	top:0.8%;
 	color:white;
+	background-color:rgb(3,85,238);
 }   
 
-
-#entregas{
-	width:50%;
-	margin: 50px auto;
-	background-color:white;
-}
 
 
                 

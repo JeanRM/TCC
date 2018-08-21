@@ -4,7 +4,10 @@
 		private $nome;
 		private $login;
 		private $senha;
-		private $cpf;
+		private $cpf; 
+		private $email; 
+		private $sexo;
+		private $telefone;  
 
 		public function getIdUsuario(){
 			return $this->idUsuario;
@@ -63,6 +66,13 @@
 		}
 		public function setEmail($email){
 			$this->email = $email;
+		}
+
+		public function getSexo(){
+			return $this->sexo;
+		}
+		public function setSexo($sexo){
+			$this->sexo = $sexo;
 		}
 	}
 ?>

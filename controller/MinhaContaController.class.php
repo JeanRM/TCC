@@ -4,10 +4,10 @@
 	
 	class MinhaContaController{
 		public function buscaDados(){
-			session_start();
 			$idCliente = $_SESSION['codigo'];
 			$dao = new DaoMinhaConta();
 			$dados = $dao->listarDados($idCliente);
+			return $dados;
 
 		}
 	}

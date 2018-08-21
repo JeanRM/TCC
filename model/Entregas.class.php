@@ -79,7 +79,7 @@
 		}
 
 		public function getPreco(){
-			return $this->infoRemetente;
+			return $this->preco;
 		}
 		public function setPreco($preco){
 			$this->preco = $preco;
