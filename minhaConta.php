@@ -14,7 +14,9 @@
 </head>
 
 <body>
+	
 	<div id="minhaConta">
+
 		<table class="table">
 			<thead class="thead-dark">
 		   		<tr>
@@ -27,7 +29,7 @@
 				    <th>Email</th>
 				</tr>
 
-				
+
 			</thead>
 			  		
 			<tbody>

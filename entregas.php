@@ -16,8 +16,10 @@
 		include_once("model/Entregas.class.php");
 		$dao = new DaoEntrega();
 		
-	?>	
+	?>
+	<button class="cadastrar-Entrega" href="#"> Cadastrar Entrega </button>
 	<div id="entregas">	
+
 		<table class="table">
 			<thead class="thead-dark">
 		   		<tr>
