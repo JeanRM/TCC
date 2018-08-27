@@ -23,23 +23,9 @@
 			$sqlPreparado->bindValue(":email",$usuario->getEmail());
 			$sqlPreparado->execute();
 			
-			return $sqlPreparado->rowCount();;
-		}
-		public function transformaUsuarioDoBancoEmObjeto($dadosDoBanco){
-			$usuario = new Usuario();
-			$usuario->setIdUsuario($dadosDoBanco['id_empresa']);
-			$usuario->setNome($dadosDoBanco['nome_empresa']);
-			$usuario->setLogin($dadosDoBanco['login_empresa']);
-			$usuario->setSenha($dadosDoBanco['senha_empresa']);
-			return $usuario;
+			return $sqlPreparado->rowCount();
 		}
 
-		public function puxaDado($idCliente){
-			$sql = "SELECT * FROM tb_cliente WHERE id_cliente = :idcliente";
-			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
-			$sqlPreparado->bindValue(":idcliente",$idCliente);
-			$sqlPreparado->execute();
-		}
 		
 	}
  ?>

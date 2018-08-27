@@ -1,0 +1,10 @@
+#cadastro-funcionario{
+	display:block;
+	margin:10% auto;
+	width:50%;
+}
+
+#cadastro-funcionario button{
+	display:block;
+	margin-top:2%;
+}
