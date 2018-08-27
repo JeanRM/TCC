@@ -58,9 +58,9 @@
 
 
 			    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-			        <a class="nav-link" href="#">
-			        	<i class="fas fa-screwdriver"></i>
-			        	<span class="nav-link-text">Em Construção</span>
+			        <a class="nav-link" href="funcionario.php">
+			        	<i class="fas fa-address-card"></i>
+			        	<span class="nav-link-text">Funcionário</span>
 			        </a>
 			    </li>
 

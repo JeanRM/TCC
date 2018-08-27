@@ -4,7 +4,7 @@
 	
 	class DaoUsuario{
 		public function buscarUsuarioPorLogin($login){
-			$sql = "SELECT * FROM tb_cliente WHERE login_cliente=:login";
+			$sql = "SELECT * FROM tb_empresa WHERE login_empresa=:login";
 			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
 			$sqlPreparado->bindValue(":login",$login);
 			$resposta = $sqlPreparado->execute();
@@ -13,7 +13,7 @@
 			
 		}
 		public function salvarUsuarioNoBanco($usuario){
-			$sql = "INSERT INTO tb_cliente (id_cliente, nome_cliente, login_cliente, senha_cliente, cpf_cliente, telefone_cliente, email_cliente) VALUES ('', :nome, :login, :senha, :cpf, :telefone, :email)";
+			$sql = "INSERT INTO tb_empresa (id_empresa, nome_empresa, login_empresa, senha_empresa, cnpj_empresa, telefone_empresa, email_empresa) VALUES ('', :nome, :login, :senha, :cpf, :telefone, :email)";
 			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
 			$sqlPreparado->bindValue(":nome",$usuario->getNome());
 			$sqlPreparado->bindValue(":login",$usuario->getLogin());
@@ -27,10 +27,10 @@
 		}
 		public function transformaUsuarioDoBancoEmObjeto($dadosDoBanco){
 			$usuario = new Usuario();
-			$usuario->setIdUsuario($dadosDoBanco['id_cliente']);
-			$usuario->setNome($dadosDoBanco['nome_cliente']);
-			$usuario->setLogin($dadosDoBanco['login_cliente']);
-			$usuario->setSenha($dadosDoBanco['senha_cliente']);
+			$usuario->setIdUsuario($dadosDoBanco['id_empresa']);
+			$usuario->setNome($dadosDoBanco['nome_empresa']);
+			$usuario->setLogin($dadosDoBanco['login_empresa']);
+			$usuario->setSenha($dadosDoBanco['senha_empresa']);
 			return $usuario;
 		}
 
