@@ -39,7 +39,6 @@
 					foreach ($vetorDeProdutos as $entrega) {
 				?>
 		    
-		    	<tr>
 			      	<th scope="row">1</th>
 			      	<td><?=$entrega->getProduto()?></td>
 					<td><?=$entrega->getEntregador()?></td>
