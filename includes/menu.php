@@ -28,7 +28,7 @@
 
 
 	<form method="POST" action="minhaConta.php">
-    	<button id="botao" class="btn btn-info" name="MinhaConta" type="submit">
+    	<button id="botao" class="btn" name="MinhaConta" type="submit">
             <span class="nav-link-text">Minha Conta  </span>
             <i color="white" class="far fa-user fa-10px"></i>
       	</button>

@@ -6,6 +6,10 @@
  	include_once("controller/FuncionarioController.class.php");
  	$controle = new FuncionarioController();
  	$mensagem = "";
+
+ 	session_start();
+ 	$idEmpresa = $_SESSION['empresa'];
+
  	if (isset($_POST["btn-cadastrar"])){
 		$mensagem = $controle->cadastrarFuncionario($_POST);
 	}
@@ -37,7 +41,13 @@
 			</thead>
 			  		
 			<tbody class="corpo-tabela">
-			
+					<?php
+
+						$vetorDeFuncionario = $controle->buscarFuncionarioPorEmpresa($idEmpresa);
+						foreach ($vetorDeFuncionario as $funcionario) {
+							var_dump($funcionario);
+						}
+					?>
 		   			<th scope="row">1</th>
 		   			<td>chocolate</td>
 				    <td>igor</td>

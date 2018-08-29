@@ -22,5 +22,13 @@
 			$funcionario->setSenha($dadosDoFormulario['senha']);
 			return $funcionario;
 		}
+
+		public function buscarFuncionarioPorEmpresa($idEmpresa){
+			$dao = new DaoFuncionario();
+			return $dao->listarFuncionariosPorEmpresa($idEmpresa);
+		}
+		
 	}
+
+	
 ?>

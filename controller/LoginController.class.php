@@ -16,6 +16,7 @@
             		$_SESSION['nome'] 	= $usuario->getNome();
             		$_SESSION['codigo'] = $usuario->getIdUsuario();
             		$_SESSION['logado'] = true;
+            		$_SESSION['empresa'] = 1;
 
 					header('location:entrou.php');
 				}else{
