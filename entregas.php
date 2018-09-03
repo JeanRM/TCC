@@ -11,7 +11,7 @@
 </head>
 
 <body>
-	<?php
+	<?php 
 		include_once("dao/DaoEntrega.class.php");
 		include_once("model/Entregas.class.php");
 		$dao = new DaoEntrega();

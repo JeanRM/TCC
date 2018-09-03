@@ -14,7 +14,7 @@
 					$vetorDeObjetos [] = $this ->transformaDadosDoBancoEmObjeto ($linha);
 			} 
 			
-			return $vetorDeObjetos;
+			return $vetorDeObjetos; 
 		}
 
 		public function transformaDadosDoBancoEmObjeto($dadosDoBanco){

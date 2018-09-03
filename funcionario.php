@@ -28,14 +28,12 @@
 		<table class="table tabela">
 			<thead >
 		   		<tr>
-		   			<th>#</th>
-		   			<th>Produto</th>
-				    <th>Entregador</th>
-				    <th>Data de Emissão</th>
-				    <th>Status</th>
-				    <th>Descrição</th>
-				    <th>Preço</th>
-				    <th></th>
+		   			
+		   			<th>Id Funcionario</th>
+				    <th>Nome</th>
+				    <th>Login</th>
+				    <th>Senha</th>
+				  
 
 				</tr>
 			</thead>
@@ -44,22 +42,23 @@
 					<?php
 
 						$vetorDeFuncionario = $controle->buscarFuncionarioPorEmpresa($idEmpresa);
-						foreach ($vetorDeFuncionario as $funcionario) {
-							var_dump($funcionario);
-						}
+						foreach ($vetorDeFuncionario as $funcionario){
+						
 					?>
-		   			<th scope="row">1</th>
-		   			<td>chocolate</td>
-				    <td>igor</td>
-				    <td>27/08/2018</td>
-				    <td>Em andamento</td>
-				    <td>asadasd</td>
-				    <td>20,00R$</td>
+		   			
+		   			<td><?=$funcionario->getIdFuncionario()?></td>
+				    <td><?=$funcionario->getNome()?></td>
+				    <td><?=$funcionario->getLogin()?></td>
+				    <td><?=$funcionario->getSenha()?></td>
 					<td>
 						<a href="#"> <i class="fas fa-edit"></i> </a>
 						<a href="#"><i class="fas fa-trash-alt"></i></a>
 					
 					</td>
+					<?php 
+						} 
+						
+					?>
 						
 	
 			</tbody>
