@@ -3,27 +3,30 @@
 
 <?php
  	include_once("includes/menu.php");
- 	include_once("controller/FuncionarioController.class.php");
- 	$controle = new FuncionarioController();
- 	$mensagem = "";
-
- 	session_start();
- 	$idEmpresa = $_SESSION['empresa'];
-
- 	if (isset($_POST["btn-cadastrar"])){
-		$mensagem = $controle->cadastrarFuncionario($_POST);
-	}
+ 
 
 ?>
 
 <head>
-	<link rel="stylesheet" href="css/estilo-tela-entrou.css"/>
-	<link rel="stylesheet" href="css/funcionario.css"/>
+
+	<link rel="stylesheet" href="css/funcionario.css">
 </head>
 
 <body>
 	<button type="button" class="btn btn-success float-right btn-cadastro" data-toggle="modal" data-target=".bd-example-modal-lg">Cadastrar Funcionário</button>
 
+	<div class="head-tb">
+		<h2 class="teste"> Funcionário - </h2>
+		<div class="body-tb">
+			<label class="Meu-Label" for="Login"> Nome </label>
+			<input type="text" class="form-control Meu-Input">
+		</div>
+
+	</div>
+
+
+	
+<!-- 
 	<div id="corpo">
 		<table class="table tabela">
 			<thead >
@@ -52,7 +55,7 @@
 				    <td><?=$funcionario->getSenha()?></td>
 					<td>
 						<a href="#"> <i class="fas fa-edit"></i> </a>
-						<a href="#"><i class="fas fa-trash-alt"></i></a>
+						<a href="funcionario.php"><i class="fas fa-trash-alt"></i></a>
 					
 					</td>
 					<?php 
@@ -68,6 +71,7 @@
 			echo $mensagem;
 		?>
 		
+-->
 
 		
 
