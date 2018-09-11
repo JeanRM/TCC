@@ -3,6 +3,14 @@
 
 <?php
  	include_once("includes/menu.php");
+ 	include_once("model/Entregas.class.php");
+	include_once("controller/EntregaController.class.php");
+	$controle = new ControllerEntrega();
+	
+
+ 	if (isset($_POST["btn-cadastrar"])){		
+		$controle -> cadastrarEntrega($_POST);
+	} 
 ?>
 
 <head>
@@ -11,15 +19,12 @@
 </head>
 
 <body>
-	<?php 
-		include_once("dao/DaoEntrega.class.php");
-		include_once("model/Entregas.class.php");
-		$dao = new DaoEntrega();
-		
-	?>
+
 	<button type="button" class="btn btn-success float-right btn-cadastro" data-toggle="modal" data-target=".cadastre">Cadastrar Entregas</button>
 
  	<?php
+ 		include_once("dao/DaoEntrega.class.php");
+ 		$dao = new DaoEntrega();
 		$vetorDeProdutos= $dao->listarEntrega();	
 		foreach ($vetorDeProdutos as $entrega) {
 	?>

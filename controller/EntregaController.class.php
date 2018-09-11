@@ -9,6 +9,12 @@
 			$vetorDeProdutos= $dao->listarEntrega(); 
 			return $vetorDeProdutos; 
 		}
+
+		public function cadastrarEntrega{
+			$dao = new DaoEntrega();
+			$vetorDeProdutos= $dao->listarEntrega(); 
+			return $vetorDeProdutos; 
+		}
 		
 	}
 

@@ -3,13 +3,22 @@
 
 <?php
  	include_once("includes/menu.php");
+ 	include_once("dao/DaoFuncionario.class.php");
+	include_once("model/Funcionario.class.php");
+	include_once("controller/FuncionarioController.class.php");
+	$dao = new DaoFuncionario();	
+	$controle = new FuncionarioController();
+	$id;
+
+
+	if (isset($_POST["btn-cadastrar"])){		
+		$controle -> cadastrarFuncionario($_POST);
+
+	} 
 
  	if (isset($_GET['id'])){
-		include_once("controller/FuncionarioController.class.php");
-		$controller = new FuncionarioController();
-		$id;
 		$id=$_GET['id'];
-		$controller -> excluir($id);
+		$controle ->excluir($id);
 	} 
 
 ?>
@@ -20,18 +29,11 @@
 </head>
 
 <body>
-	<?php 
-		include_once("dao/DaoFuncionario.class.php");
-		include_once("model/Funcionario.class.php");
-		$dao = new DaoFuncionario();	
-		$funcionario;
 
-		
-	?>
 	<button type="button" class="btn btn-success float-right btn-cadastro" data-toggle="modal" data-target=".cadastre">Cadastrar Funcionários</button>
 
  	<?php
-		$vetorDeProdutos= $dao->listarFuncionariosPorEmpresa();	
+		$vetorDeProdutos = $dao->listarFuncionarios($id);	
 		foreach ($vetorDeProdutos as $funcionario) {
 	?>
 

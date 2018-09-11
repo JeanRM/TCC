@@ -1,4 +1,4 @@
-<?php
+ <?php
 	include_once("includes/Conexao.class.php");	
 
 	class DaoEntrega{

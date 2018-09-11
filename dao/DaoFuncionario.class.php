@@ -16,7 +16,7 @@
 			return $sqlPreparado->rowCount();
 		}
 
-		public function listarFuncionariosPorEmpresa(){
+		public function listarFuncionarios($idEmpresa){
 			$sql = "SELECT * FROM tb_funcionario";
 			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
 			$sqlPreparado->bindValue(":empresa",$idEmpresa);

@@ -29,7 +29,7 @@
 			return $vetorDeProduto;
 		}
 
-		public function exlcuir($id){
+		public function exlcuir($idempresa){
 			$dao = new DaoProduto ();
 			$dao ->excluir($id);
 		}
