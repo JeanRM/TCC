@@ -17,43 +17,75 @@
 		$dao = new DaoEntrega();
 		
 	?>
-	<button class="cadastrar-Entrega" href="#"> Cadastrar Entrega </button>
-	<div id="entregas">	
+	<button type="button" class="btn btn-success float-right btn-cadastro" data-toggle="modal" data-target=".cadastre">Cadastrar Entregas</button>
 
-		<table class="table">
-			<thead class="thead-dark">
-		   		<tr>
-		   			<th>#</th>
-		   			<th>Produto</th>
-				    <th>Entregador</th>
-				    <th>Data de Emissão</th>
-				    <th>Status</th>
-				    <th>Descrição</th>
-				    <th>Preço</th>
-				</tr>
-			</thead>
-			  		
-			<tbody>
-				<?php
-					$vetorDeProdutos= $dao->listarEntrega();	
-					foreach ($vetorDeProdutos as $entrega) {
-				?>
-		    
-			      	<th scope="row">1</th>
-			      	<td><?=$entrega->getProduto()?></td>
-					<td><?=$entrega->getEntregador()?></td>
-					<td><?=$entrega->getDataEntrega()?></td>
-					<td><?=$entrega->getStatus()?></td>
-					<td><?=$entrega->getDescricao()?></td>
-					<td><?=$entrega->getPreco()."R$"?></td>				    		
-			    
-			    <?php 
-					} 
+ 	<?php
+		$vetorDeProdutos= $dao->listarEntrega();	
+		foreach ($vetorDeProdutos as $entrega) {
+	?>
+	   	<div class="head-tb">
+			<h2 class="teste"> Entrega  <?=$entrega->getIdEntrega()?> </h2>
+			<div class="body-tb">
+				<label class="label" for="nome"> Nome </label>
+				<input class="input" name="nome" type="text" placeholder="<?=$entrega->getProduto()?>" disabled>
+
+
+
+				<label class="label" for="nome"> Entregador </label>
+				<input class="input" name="nome" type="text" placeholder="<?=$entrega->getEntregador()?>"  disabled>
+
+				<label class="label" for="nome"> Data Da Entrega </label>
+				<input class="input" name="nome" type="text" placeholder="<?=$entrega->getDataEntrega()?>"  disabled>
+
+				<label class="label" for="nome"> Status </label>
+				<input class="input" name="nome" type="text" placeholder="<?=$entrega->getStatus()?>"  disabled>
+
+				<label class="label" for="nome"> Descrição </label>
+				<input class="input" name="nome" type="text" placeholder="<?=$entrega->getDescricao()?>"  disabled>
+
+				<label class="label" for="nome"> Preço </label>
+				<input class="input" name="nome" type="text" placeholder="<?=$entrega->getPreco()?>"  disabled>
+
+			</div>
+			<div class="bottom-tb">
+				 <button type="button" class="btn btn-danger  botao-tabela">Excluir</button>
+				 <button type="button" class="btn btn-success botao-tabela ">Atualizar Entrega</button>
+			
+			</div>
+		</div>
+	<?php 
+		} 
 					
-				?>
-			</tbody>
-		</table>         
-   	</div>
+	?>
+
+<!-- MODAL DE CADASTRO -->
+	<div class="modal fade cadastre" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	 	<div class="modal-dialog modal-lg">
+	    	<div class="modal-content">
+				<div class="modal-body">
+					<form method="POST">
+						<div id="cadastro-funcionario">
+						 	<span class="input-group-addon" id="basic-addon1">Nome</span>
+							<input type="text" class="form-control" placeholder="Nome Funcionario" aria-describedby="basic-addon1" name="nome" required>
+
+							<span class="input-group-addon" id="basic-addon1">Login</span>
+							<input type="text" class="form-control" placeholder="Login Funcionario" aria-describedby="basic-addon1" name="login" required>
+
+							<span class="input-group-addon" id="basic-addon1">Senha</span>
+							<input type="password" class="form-control" placeholder="Senha Funcionario" aria-describedby="basic-addon1" name="senha" required>
+						</div>
+					
+				</div>						
+				<div class="modal-footer">
+					<button type="submit" name="btn-cadastrar" class="btn btn-primary">Cadastrar</button>
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+				</div>
+					</form>
+			</div>
+	    </div>
+	</div>
+
+	
 </body>  
 </html>
 

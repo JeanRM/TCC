@@ -28,6 +28,11 @@
 			$vetorDeProduto = $dao->listarFuncionariosPorEmpresa($idEmpresa);
 			return $vetorDeProduto;
 		}
+
+		public function exlcuir($id){
+			$dao = new DaoProduto ();
+			$dao ->excluir($id);
+		}
 		
 	}
 

@@ -6,7 +6,8 @@
 	class ControllerEntrega{
 		public function buscarEntrega{
 			$dao = new DaoEntrega();
-			$vetorDeProdutos= $dao->listarEntrega();
+			$vetorDeProdutos= $dao->listarEntrega(); 
+			return $vetorDeProdutos; 
 		}
 		
 	}

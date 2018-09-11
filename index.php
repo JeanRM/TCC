@@ -22,7 +22,7 @@
    		
    		<div class="col-sm-12">
 			<!-- BOTÃO CADASTRE-SE -->
-			<button type="button" class="btn btn-info float-right btn-cadastro cadastre-se" data-toggle="modal" data-target=".bd-example-modal-lg">Cadastre-se</button>
+			<button type="button" class="btn btn-info float-right btn-cadastro cadastre-se" data-toggle="modal" data-target=".cadastre">Cadastre-se</button>
   		</div>
    		
 		<div class="form-centralizado">
@@ -52,37 +52,32 @@
 	</div>
 
 	<!-- MODAL DE CADASTRO -->
-	<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	<div class="modal fade cadastre" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 	  <div class="modal-dialog modal-lg">
 	    <div class="modal-content">
 
-	    	<div class="modal-header">
-					<h5 class="modal-title">Cadastro</h5>
-			</div>
-
 			<div class="modal-body">
-				<ul class="nav nav-tabs" role="tablist">
-					<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Cliente</a></li>
-				</ul>
+				<a class="tipo-cadastro" href="#">Cliente</a>
+				<a class="tipo-cadastro" href="#">Empresa</a>
 
 		      	<form method="POST">
-					<div class="dados-pessoais">
+					<div class="corpo-modal">
 						<img src="imagens/icone-indefinido.jpg" class="tamanho-imagem"/>
 						<div class="informacoes-dados">
 							<div class="input-group dados">
-								<span class="input-group-addon" id="basic-addon1">Nome</span>
-		  						<input type="text" class="form-control" placeholder="Digite Seu Nome" aria-describedby="basic-addon1" name="cnome" required>
+								<span for="cnome">Nome</span>
+		  						<input type="text" placeholder="Digite Seu Nome" name="cnome" required>
 							</div>
 		
 							<br>
 							<div class="input-group dados">
-			  					<span class="input-group-addon" id="basic-addon1">Login</span>
-			 	 				<input type="text" class="form-control" placeholder="Digite Seu login" aria-describedby="basic-addon1" name="clogin" required>
+			  					<span for="clogin">Login</span>
+			 	 				<input type="text" placeholder="Digite Seu login"  name="clogin" required>
 							</div>
 							<br>
 							<div class="input-group dados">
-			  					<span class="input-group-addon" id="basic-addon1">Senha</span>
-			  					<input type="password" class="form-control" placeholder="Digite Sua senha" aria-describedby="basic-addon1" name="csenha" required>
+			  					<span for="csenha"> Senha</span>
+			  					<input type="password" placeholder="Digite Sua senha" name="csenha" required>
 							</div>
 							<br>
 							<div class="input-group dados">

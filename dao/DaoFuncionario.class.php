@@ -16,8 +16,8 @@
 			return $sqlPreparado->rowCount();
 		}
 
-		public function listarFuncionariosPorEmpresa($idEmpresa){
-			$sql = "SELECT * FROM tb_funcionario WHERE fk_empresa=:empresa";
+		public function listarFuncionariosPorEmpresa(){
+			$sql = "SELECT * FROM tb_funcionario";
 			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
 			$sqlPreparado->bindValue(":empresa",$idEmpresa);
 			$resposta = $sqlPreparado->execute();
@@ -40,5 +40,13 @@
 			return $funcionario;
 
 		}
+
+
+		public function excluir($id){
+			$sql = "DELETE  FROM tb_funcionario WHERE id_funcionario=:id";
+			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
+			$sqlPreparado->bindValue(":id",$id);
+			$resposta = $sqlPreparado->execute();
+		}	
 	}
 ?>

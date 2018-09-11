@@ -3,7 +3,14 @@
 
 <?php
  	include_once("includes/menu.php");
- 
+
+ 	if (isset($_GET['id'])){
+		include_once("controller/FuncionarioController.class.php");
+		$controller = new FuncionarioController();
+		$id;
+		$id=$_GET['id'];
+		$controller -> excluir($id);
+	} 
 
 ?>
 
@@ -13,70 +20,52 @@
 </head>
 
 <body>
-	<button type="button" class="btn btn-success float-right btn-cadastro" data-toggle="modal" data-target=".bd-example-modal-lg">Cadastrar Funcionário</button>
+	<?php 
+		include_once("dao/DaoFuncionario.class.php");
+		include_once("model/Funcionario.class.php");
+		$dao = new DaoFuncionario();	
+		$funcionario;
 
-	<div class="head-tb">
-		<h2 class="teste"> Funcionário - </h2>
-		<div class="body-tb">
-			<label class="Meu-Label" for="Login"> Nome </label>
-			<input type="text" class="form-control Meu-Input">
+		
+	?>
+	<button type="button" class="btn btn-success float-right btn-cadastro" data-toggle="modal" data-target=".cadastre">Cadastrar Funcionários</button>
+
+ 	<?php
+		$vetorDeProdutos= $dao->listarFuncionariosPorEmpresa();	
+		foreach ($vetorDeProdutos as $funcionario) {
+	?>
+
+	   	<div class="head-tb">
+			<h2 class="teste"> Funcionário <?=$funcionario->getIdFuncionario()?> </h2>
+			<div class="body-tb">
+				<label class="label" for="nome"> Nome </label>
+				<input class="input" name="nome" type="text" placeholder="<?=$funcionario->getNome()?>" disabled>
+
+
+
+				<label class="label" for="nome"> Login </label>
+				<input class="input" name="nome" type="text" placeholder="<?=$funcionario->getLogin()?>"  disabled>
+
+				<label class="label" for="nome"> Senha </label>
+				<input class="input" name="nome" type="text" placeholder="<?=$funcionario->getSenha()?>"  disabled>
+
+				
+
+			</div>
+			<div class="bottom-tb">
+				 <a type="button" class="btn btn-danger  botao-tabela" href="funcionario.php?id=<?=$funcionario-> getidFuncionario()?>">Excluir</a>
+				 <button type="button" class="btn btn-success botao-tabela ">Atualizar Funcionario</button>
+			
+			</div>
 		</div>
-
-	</div>
-
-
-	
-<!-- 
-	<div id="corpo">
-		<table class="table tabela">
-			<thead >
-		   		<tr>
-		   			
-		   			<th>Id Funcionario</th>
-				    <th>Nome</th>
-				    <th>Login</th>
-				    <th>Senha</th>
-				  
-
-				</tr>
-			</thead>
-			  		
-			<tbody class="corpo-tabela">
-					<?php
-
-						$vetorDeFuncionario = $controle->buscarFuncionarioPorEmpresa($idEmpresa);
-						foreach ($vetorDeFuncionario as $funcionario){
-						
-					?>
-		   			
-		   			<td><?=$funcionario->getIdFuncionario()?></td>
-				    <td><?=$funcionario->getNome()?></td>
-				    <td><?=$funcionario->getLogin()?></td>
-				    <td><?=$funcionario->getSenha()?></td>
-					<td>
-						<a href="#"> <i class="fas fa-edit"></i> </a>
-						<a href="funcionario.php"><i class="fas fa-trash-alt"></i></a>
-					
-					</td>
-					<?php 
-						} 
-						
-					?>
-						
-	
-			</tbody>
-		</table>         
-
-		<?php
-			echo $mensagem;
-		?>
+	<?php 
 		
--->
+			}		
+	?>
 
-		
 
 		<!-- MODAL DE CADASTRO -->
-		<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+		<div class="modal fade cadastre" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 		 	<div class="modal-dialog modal-lg">
 		    	<div class="modal-content">
 					<div class="modal-body">
@@ -97,7 +86,7 @@
 						<button type="submit" name="btn-cadastrar" class="btn btn-primary">Cadastrar</button>
 						<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
 					</div>
-						</form>
+					</form>
 				</div>
 		    </div>
 		</div>
