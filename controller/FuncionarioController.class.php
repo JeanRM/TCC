@@ -23,8 +23,9 @@
 			return $funcionario;
 		}
 
-		public function buscarFuncionarioPorEmpresa($idEmpresa){
+		public function buscarFuncionarioPorEmpresa(){
 			$dao = new DaoFuncionario();
+			$idEmpresa = $_SESSION['codigo'];
 			$vetorDeProduto = $dao->listarFuncionariosPorEmpresa($idEmpresa);
 			return $vetorDeProduto;
 		}

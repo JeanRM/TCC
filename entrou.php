@@ -3,6 +3,9 @@
 	
 <?php
  	include_once("includes/menu.php");
+ 	include_once("model/Usuario.class.php");
+ 	include_once("controller/EntrouController.class.php");
+
 ?>
 	
 <head>

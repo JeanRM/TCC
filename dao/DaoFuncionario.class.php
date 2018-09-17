@@ -4,7 +4,10 @@
 
 	class DaoFuncionario{
 		public function cadastrarFuncionarioNoBd($funcionario){
-			$sql = "INSERT INTO tb_funcionario (id_funcionario, nome_funcionario, login_funcionario, senha_funcionario) VALUES ('', :nome, :login, :senha)";
+			$id_empresa;
+			$id_empresa = $_SESSION['codigo'];
+
+			$sql = "INSERT INTO tb_funcionario (id_funcionario, nome_funcionario, login_funcionario, senha_funcionario, id_empresa) VALUES ('', :nome, :login, :senha, :id_empresa)";
 			
 
 
@@ -12,14 +15,15 @@
 			$sqlPreparado->bindValue(":nome",$funcionario->getNome());
 			$sqlPreparado->bindValue(":login",$funcionario->getLogin());
 			$sqlPreparado->bindValue(":senha",$funcionario->getSenha());
+			$sqlPreparado->bindValue(":id_empresa",$id_empresa);
 			$sqlPreparado->execute();
 			return $sqlPreparado->rowCount();
 		}
 
-		public function listarFuncionarios($idEmpresa){
-			$sql = "SELECT * FROM tb_funcionario";
+		public function listarFuncionarios(){
+			$idEmpresa = $_SESSION['codigo'];
+			$sql = "SELECT * FROM tb_funcionario INNER JOIN tb_empresa ON tb_funcionario.id_empresa=tb_empresa.id_empresa";
 			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
-			$sqlPreparado->bindValue(":empresa",$idEmpresa);
 			$resposta = $sqlPreparado->execute();
 			$lista = $sqlPreparado->fetchAll(PDO::FETCH_ASSOC);
 			// var_dump($lista);

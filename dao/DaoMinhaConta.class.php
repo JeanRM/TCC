@@ -2,7 +2,7 @@
 	include_once("includes/Conexao.class.php");	
 
 	class DaoMinhaConta{
-		public function listarDados ($idCliente){
+		public function listarDados ($idCliente){ 
 			$sql = "SELECT * FROM tb_cliente WHERE id_cliente = :idcliente";
 			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
 			$sqlPreparado->bindValue(":idcliente",$idCliente);

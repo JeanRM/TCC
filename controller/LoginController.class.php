@@ -1,12 +1,13 @@
 <?php
 	include_once ("dao/DaoUsuario.class.php");
+	include_once ("model/Usuario.class.php");
 	
 	class LoginController{
 		public function logar($post){
 			$dao = new DaoUsuario();
-			$usuario = $dao->buscarUsuarioPorLogin($post['login']);
+			$usuario = $dao->buscarEmpresaPorLogin($post['login']);
 			
-			if(is_null($usuario->getIdUsuario())){
+			if(is_null($usuario->getIdEmpresa())){
 				return array("erro"=>true, "msg"=>"Login não encontrado!");   
 			}else{
 
@@ -14,9 +15,9 @@
 					session_start();
 
             		$_SESSION['nome'] 	= $usuario->getNome();
-            		$_SESSION['codigo'] = $usuario->getIdUsuario();
+            		$_SESSION['codigo'] = $usuario->getIdEmpresa();
             		$_SESSION['logado'] = true;
-            		$_SESSION['empresa'] = 1;
+            		
 
 					header('location:entrou.php');
 				}else{
@@ -25,13 +26,13 @@
 			}	
 		}
 
-		public function cadastrarUsuario($dadosDoFormulario){			
+		public function cadastrarEmpresa($dadosDoFormulario){			
 			$dao = new DaoUsuario();
-			$usuario = $dao->buscarUsuarioPorLogin($post['login']);
+			$usuario = $dao->buscarEmpresaPorLogin($dadosDoFormulario['clogin']);
 			
-			if(is_null($usuario->getIdUsuario())){
+			if(is_null($usuario->getIdEmpresa())){
 				$usuario = $this->formularioDeCadastroParaUsuario($dadosDoFormulario);
-				$resposta = $dao->salvarUsuarioNoBanco($usuario);
+				$resposta = $dao->salvarEmpresaNoBanco($usuario);
 				if($resposta > 0){
 					 echo "Salvou";
 				}else{
@@ -49,7 +50,7 @@
 			$usuario->setNome($dadosDoFormulario['cnome']);
 			$usuario->setLogin($dadosDoFormulario['clogin']);
 			$usuario->setSenha($dadosDoFormulario['csenha']);
-			$usuario->setCpf($dadosDoFormulario['cCpf']);
+			$usuario->setCnpj($dadosDoFormulario['cCpf']);
 			$usuario->setTelefone($dadosDoFormulario['ctelefone']);
 			$usuario->setEmail($dadosDoFormulario['cemail']);
 			return $usuario;

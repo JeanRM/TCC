@@ -6,6 +6,9 @@
 	include_once ("controller/LoginController.class.php");
 	$controle = new LoginController();
 
+	if (isset($_POST["btn-cadastrar"])){
+		$mensagem = $controle->cadastrarEmpresa($_POST);
+	}
 	if (isset($_POST["btn-logar"])){
 		$mensagem = $controle->logar($_POST);
 	}

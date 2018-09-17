@@ -4,6 +4,7 @@
 		private $nome;
 		private $login;
 		private $senha;
+		
 
 
 		public function getIdFuncionario(){
@@ -34,5 +35,7 @@
 		public function setSenha($senha){
 			$this->senha = $senha;
 		}
+
+
 	}
 ?>

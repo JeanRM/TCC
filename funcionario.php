@@ -33,7 +33,7 @@
 	<button type="button" class="btn btn-success float-right btn-cadastro" data-toggle="modal" data-target=".cadastre">Cadastrar Funcionários</button>
 
  	<?php
-		$vetorDeProdutos = $dao->listarFuncionarios($id);	
+		$vetorDeProdutos = $dao->listarFuncionarios();	
 		foreach ($vetorDeProdutos as $funcionario) {
 	?>
 
@@ -81,6 +81,8 @@
 
 								<span class="input-group-addon" id="basic-addon1">Senha</span>
 								<input type="password" class="form-control" placeholder="Senha Funcionario" aria-describedby="basic-addon1" name="senha" required>
+
+								
 							</div>
 						
 					</div>						

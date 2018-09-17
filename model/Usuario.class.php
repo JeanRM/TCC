@@ -1,19 +1,19 @@
 <?php
 	class Usuario{
-		private $idUsuario;
+		private $idEmpresa;
 		private $nome;
 		private $login;
 		private $senha;
-		private $cpf; 
+		private $cnpj; 
 		private $email; 
 		private $sexo;
 		private $telefone;  
 
-		public function getIdUsuario(){
-			return $this->idUsuario;
+		public function getIdEmpresa(){
+			return $this->idEmpresa;
 		}
-		public function setIdUsuario($idUsuario){
-			$this->idUsuario = $idUsuario;
+		public function setIdEmpresa($idEmpresa){
+			$this->idEmpresa = $idEmpresa;
 		}
 
 		
@@ -45,11 +45,11 @@
 
 
 
-		public function getCpf(){
+		public function getCnpj(){
 			return $this->cpf;
 		}
-		public function setCpf($cpf){
-			$this->cpf = $cpf;
+		public function setCnpj($cnpj){
+			$this->cpf = $cnpj;
 		}
 
 

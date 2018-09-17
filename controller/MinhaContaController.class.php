@@ -1,4 +1,4 @@
-<?php 
+ <?php 
 	include_once ("dao/DaoUsuario.class.php");
 	include_once ("dao/DaoMinhaConta.class.php");
 	
