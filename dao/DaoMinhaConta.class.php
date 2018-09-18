@@ -2,10 +2,10 @@
 	include_once("includes/Conexao.class.php");	
 
 	class DaoMinhaConta{
-		public function listarDados ($idCliente){ 
-			$sql = "SELECT * FROM tb_cliente WHERE id_cliente = :idcliente";
+		public function listarDados ($idEmpresa){ 
+			$sql = "SELECT * FROM tb_empresa WHERE id_empresa = :idempresa";
 			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
-			$sqlPreparado->bindValue(":idcliente",$idCliente);
+			$sqlPreparado->bindValue(":idempresa",$idEmpresa);
 			$sqlPreparado->execute();
 			$lista = $sqlPreparado->fetchAll(PDO::FETCH_ASSOC);
 
@@ -19,12 +19,12 @@
 
 		public function transformaDadosDoBancoEmObjeto($dadosDoBanco){
 			$usuario = new Usuario();
-			$usuario->setNome($dadosDoBanco['nome_cliente']);
-			$usuario->setSenha($dadosDoBanco['senha_cliente']);
-			$usuario->setCpf($dadosDoBanco['cpf_cliente']);
-			$usuario->setTelefone($dadosDoBanco['telefone_cliente']);
-			$usuario->setEmail($dadosDoBanco['email_cliente']);
-			$usuario->setSexo($dadosDoBanco['sexo_cliente']);
+			$usuario->setNome($dadosDoBanco['nome_empresa']);
+			$usuario->setLogin($dadosDoBanco['login_empresa']);
+			$usuario->setSenha($dadosDoBanco['senha_empresa']);
+			$usuario->setCnpj($dadosDoBanco['cnpj_empresa']);
+			$usuario->setTelefone($dadosDoBanco['telefone_empresa']);
+			$usuario->setEmail($dadosDoBanco['email_empresa']);
 			return $usuario;
 		
 		}

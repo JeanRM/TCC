@@ -4,9 +4,9 @@
 	
 	class MinhaContaController{
 		public function buscaDados(){
-			$idCliente = $_SESSION['codigo'];
+			$idEmpresa = $_SESSION['codigo'];
 			$dao = new DaoMinhaConta();
-			$dados = $dao->listarDados($idCliente);
+			$dados = $dao->listarDados($idEmpresa);
 			return $dados;
 
 		}

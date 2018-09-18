@@ -148,9 +148,31 @@ ul li a:hover{
 	top:0.8%;
 	color:black;
 	background-color:rgb(55,203,255);
-}   
+} 
+
+.corpo-d{
+	width:45%;
+	height:60%;
+	display:inline-block;
+	float:left;
+	background-color: white;
+	margin:60px 2.5%;
+	border-radius: 5%;
+	box-shadow: 5px solid black;
+}  
 
 
+
+.corpo-e{
+	width:45%;
+	height:50%;
+	display:inline-block;
+	float:right;
+	background-color: white;
+	margin:60px 2.5%;
+	border-radius: 5%;
+	box-shadow: 5px solid black;
+}  
 
                 
                

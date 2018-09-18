@@ -2,11 +2,10 @@
 	class Usuario{
 		private $idEmpresa;
 		private $nome;
-		private $login;
+ 		private $login;
 		private $senha;
 		private $cnpj; 
 		private $email; 
-		private $sexo;
 		private $telefone;  
 
 		public function getIdEmpresa(){
@@ -68,11 +67,5 @@
 			$this->email = $email;
 		}
 
-		public function getSexo(){
-			return $this->sexo;
-		}
-		public function setSexo($sexo){
-			$this->sexo = $sexo;
-		}
 	}
 ?>

@@ -7,6 +7,11 @@
 	if (isset($_POST["MinhaConta"])){
 		$controle = new MinhaContaController();
 		$controle->buscaDados($_POST);		
+	}
+
+	if (isset($_POST["MinhaConta"])){
+		$controle = new MinhaContaController();
+		$controle->buscaDados($_POST);		
 	}	
 ?>
 

@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html  lang="pt-br">	
 
 <?php
@@ -29,11 +29,17 @@
 </head>
 
 <body>
-
+	<div class="container">
+		<?php
+			$vetorDeProdutos = $dao->listarFuncionarios();	
+		var_dump($vetorDeProdutos);
+		?>
+	</div>
 	<button type="button" class="btn btn-success float-right btn-cadastro" data-toggle="modal" data-target=".cadastre">Cadastrar Funcionários</button>
 
  	<?php
-		$vetorDeProdutos = $dao->listarFuncionarios();	
+		
+
 		foreach ($vetorDeProdutos as $funcionario) {
 	?>
 
@@ -45,17 +51,17 @@
 
 
 
-				<label class="label" for="nome"> Login </label>
-				<input class="input" name="nome" type="text" placeholder="<?=$funcionario->getLogin()?>"  disabled>
+				<label class="label" for="login"> Login </label>
+				<input class="input" name="login" type="text" placeholder="<?=$funcionario->getLogin()?>"  disabled>
 
-				<label class="label" for="nome"> Senha </label>
-				<input class="input" name="nome" type="text" placeholder="<?=$funcionario->getSenha()?>"  disabled>
+				<label class="label" for="senha"> Senha </label>
+				<input class="input" name="senha" type="text" placeholder="<?=$funcionario->getSenha()?>"  disabled>
 
 				
 
 			</div>
 			<div class="bottom-tb">
-				 <a type="button" class="btn btn-danger  botao-tabela" href="funcionario.php?id=<?=$funcionario-> getidFuncionario()?>">Excluir</a>
+				 <a type="button" class="btn btn-danger  botao-tabela" href="funcionario.php?id=<?=$funcionario-> getid()?>">Excluir</a>
 				 <button type="button" class="btn btn-success botao-tabela ">Atualizar Funcionario</button>
 			
 			</div>

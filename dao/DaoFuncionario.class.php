@@ -1,4 +1,4 @@
-<?php
+ <?php
 	include_once("includes/Conexao.class.php");
 	include_once ("model/Funcionario.class.php");	
 
@@ -6,7 +6,6 @@
 		public function cadastrarFuncionarioNoBd($funcionario){
 			$id_empresa;
 			$id_empresa = $_SESSION['codigo'];
-
 			$sql = "INSERT INTO tb_funcionario (id_funcionario, nome_funcionario, login_funcionario, senha_funcionario, id_empresa) VALUES ('', :nome, :login, :senha, :id_empresa)";
 			
 
@@ -21,9 +20,10 @@
 		}
 
 		public function listarFuncionarios(){
-			$idEmpresa = $_SESSION['codigo'];
-			$sql = "SELECT * FROM tb_funcionario INNER JOIN tb_empresa ON tb_funcionario.id_empresa=tb_empresa.id_empresa";
+			$sql = "select * from tb_empresa e INNER JOIN tb_funcionario f ON (e.id_empresa=f.id_empresa) where e.id_empresa = :idempresa";
+			
 			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
+			$sqlPreparado->bindValue(":idempresa",$_SESSION['codigo']);
 			$resposta = $sqlPreparado->execute();
 			$lista = $sqlPreparado->fetchAll(PDO::FETCH_ASSOC);
 			// var_dump($lista);
