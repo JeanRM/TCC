@@ -27,7 +27,6 @@
 			$dao = new DaoFuncionario();
 			$idEmpresa = $_SESSION['codigo'];
 			$vetorDeProduto = $dao->listarFuncionariosPorEmpresa($idEmpresa);
-			return $vetorDeProduto;
 		}
 
 		public function exlcuir($idempresa){
