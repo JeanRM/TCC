@@ -19,11 +19,11 @@
 			return $sqlPreparado->rowCount();
 		}
 
-		public function listarFuncionarios(){
+		public function listarFuncionarios($id){
 			$sql = "select * from tb_empresa e INNER JOIN tb_funcionario f ON (e.id_empresa=f.id_empresa) where e.id_empresa = :idempresa";
 			
 			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
-			$sqlPreparado->bindValue(":idempresa",$_SESSION['codigo']);
+			$sqlPreparado->bindValue(":idempresa",$id);
 			$resposta = $sqlPreparado->execute();
 			$lista = $sqlPreparado->fetchAll(PDO::FETCH_ASSOC);
 			// var_dump($lista);
@@ -34,6 +34,15 @@
 			} 
 			
 			return $vetorDeObjetos;
+		}
+		public function buscarPorId($id){
+			$sql = "select * from tb_funcionario where id_funcionario = :id";
+			
+			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
+			$sqlPreparado->bindValue(":id",$id);
+			$resposta = $sqlPreparado->execute();
+			$funcionario = $this->transformaFuncionarioDoBancoEmObjeto($sqlPreparado->fetch(PDO::FETCH_ASSOC));
+			return $funcionario;
 		}
 		public function transformaFuncionarioDoBancoEmObjeto($dadosDoBanco){
 			$funcionario = new Funcionario();
@@ -51,6 +60,14 @@
 			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
 			$sqlPreparado->bindValue(":id",$id);
 			$resposta = $sqlPreparado->execute();
-		}	
+		}
+
+		public function atualizar($post){
+			$sql = "UPDATE tb_funcionario SET nome=:nome WHERE id_funcionario=:id";
+			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
+			$sqlPreparado->bindValue(":id_funcionario",$post['codigo']);
+			$sqlPreparado->bindValue(":nome_funcionario",$post['nome']);
+			$resposta = $sqlPreparado->execute();
+		}		
 	}
 ?>

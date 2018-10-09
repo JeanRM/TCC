@@ -16,9 +16,10 @@
 
 	} 
 
- 	if (isset($_GET['excluir'])){
+ 	if (isset($_GET['id'])){
 		$id=$_GET['id'];
 		$controle ->excluir($id);
+
 	} 
 
 ?>
@@ -33,7 +34,7 @@
 	<form>
 		<div class="container">
 			<?php
-				$vetorDeFuncionarios = $dao->listarFuncionarios();	
+				$vetorDeFuncionarios = $dao->listarFuncionarios($_SESSION['codigo']);	
 				var_dump($vetorDeFuncionarios);
 				foreach ($vetorDeFuncionarios as $funcionario) {
 			?>
@@ -55,9 +56,9 @@
 				<input class="input" name="senha" type="text" placeholder="<?=$funcionario->getSenha()?>"  disabled>
 			</div>
 			<div class="bottom-tb">
-				 <a name="excluir" class="btn btn-danger  botao-tabela" href="funcionario.php?id=<?=$funcionario->getIdFuncionario()?>">Excluir</a>
+				 <a name="excluir" href="funcionario.php?id=<?=$funcionario-> getIdFuncionario()?>" class="btn btn-danger  botao-tabela">Excluir</a>
 
-				 <a class="btn btn-success botao-tabela" href="alterarFuncionario.php?id=<?=$funcionario-> getIdFuncionario()?>">Atualizar Funcionario</a>
+				 <a class="btn btn-info botao-tabela" href="alterarFuncionario.php?id=<?=$funcionario-> getIdFuncionario()?>">Atualizar Funcionario</a>
 			
 			</div>
 		</div>

@@ -23,15 +23,24 @@
 			return $funcionario;
 		}
 
-		public function buscarFuncionarioPorEmpresa(){
+		public function buscarFuncionarioPorEmpresa($idEmpresa){
 			$dao = new DaoFuncionario();
-			$idEmpresa = $_SESSION['codigo'];
-			$vetorDeProduto = $dao->listarFuncionariosPorEmpresa($idEmpresa);
+			$vetorDeProduto = $dao->listarFuncionarios($idEmpresa);
 		}
 
-		public function exlcuir($idempresa){
-			$dao = new DaoProduto ();
-			$dao ->excluir($id);
+		public function buscarFuncionarioPorId($id){
+			$dao = new DaoFuncionario();
+			return $dao->buscarPorId($id);
+		}
+		public function excluir($idfuncionario){
+			$dao = new DaoFuncionario();
+			$dao->excluir($idfuncionario);
+		}
+
+		public function atualizarFuncionario($post){
+			$dao = new DaoFuncionario();
+			$dao->atualizar($post);
+		
 		}
 		
 	}
