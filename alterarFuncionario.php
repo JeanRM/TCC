@@ -12,33 +12,48 @@
 	//if(isset($_POST["cancelar"])) { 
 		//(header("location: index.php");) {
 		# code...
-	}
+	//}
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Alterar Funcionário</title>;
-	<?=include_once "includes/head.php";?>
+	<?=include_once("includes/menu.php");?>
 	<link href="css/alterar.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>
-	<div id="formulario">
-		<form method="post">
-			<input type="hidden" name="codigo" value="<?=$funcionario->getIdFuncionario()?>">
-			<label for="nome">Nome</label>
-			<input class="form-control" type="text" name="nome" value="<?=$funcionario->getNome()?>">
-
-			<label for="login">Login</label>
-			<input class="form-control" type="text" name="login" value="<?=$funcionario->getLogin()?>">
+	<form>
+	   	<div class="head-tb">
+			<h2 class="teste"> Funcionário <?=$funcionario->getNome()?> </h2>
 			
-			<label for="senha">Senha</label>
-			<input class="form-control" type="text" name="senha" value="<?=$funcionario->getSenha()?>">
-			<input class="btn btn-danger button" type="submit" value="Cancelar" name="cancelar">
+			<div class="body-tb">
+				<input type="hidden" name="codigo" value="<?=$funcionario->getIdFuncionario()?>">
 
-			<input class="btn btn-success button" type="link" value="Atualizar" name="salvar">
+				<div class="form-group row">
+					<label for="nome" class="col-sm-2 col-form-label">Nome</label>
+				    	<div class="col-sm-10">
+				      		<input type="text" class="form-control" name="nome" value="<?=$funcionario->getNome()?>">
+				    	</div>
 
-		</form>
-	</div>
+				    <label for="login" class="col-sm-2 col-form-label">Login</label>
+				    	<div class="col-sm-10">
+				    		<input type="text" class="form-control" name="login" value="<?=$funcionario->getLogin()?>">
+				   		</div>
+
+				   	<label for="senha" class="col-sm-2 col-form-label">Senha</label>
+				    	<div class="col-sm-10">
+				    		<input type="text" class="form-control" name="senha" value="<?=$funcionario->getSenha()?>">
+				   		</div>
+				 </div>
+			</div>
+
+			<div class="bottom-tb">
+				<input class="btn btn-danger button" type="submit" value="Cancelar" name="cancelar">
+
+				<input class="btn btn-success button" type="submit" value="Atualizar" name="salvar">	
+			</div>
+		</div>
+</div>
 </body>
 </html>
