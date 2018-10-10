@@ -27,7 +27,7 @@
 			$dao = new DaoFuncionario();
 			$vetorDeProduto = $dao->listarFuncionarios($idEmpresa);
 		}
-
+ 
 		public function buscarFuncionarioPorId($id){
 			$dao = new DaoFuncionario();
 			return $dao->buscarPorId($id);

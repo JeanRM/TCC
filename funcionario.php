@@ -8,7 +8,7 @@
 	include_once("controller/FuncionarioController.class.php");
 	$dao = new DaoFuncionario();	
 	$controle = new FuncionarioController();
-	$id;
+	$id; 
 
 
 	if (isset($_POST["btn-cadastrar"])){		
@@ -35,14 +35,13 @@
 		<div class="container">
 			<?php
 				$vetorDeFuncionarios = $dao->listarFuncionarios($_SESSION['codigo']);	
-				var_dump($vetorDeFuncionarios);
 				foreach ($vetorDeFuncionarios as $funcionario) {
 			?>
 		</div>
 	
 
 	   	<div class="head-tb">
-			<h2 class="teste"> Funcionário <?=$funcionario->getIdFuncionario()?> </h2>
+			<h2 class="teste"> Funcionário <?=$funcionario->getNome()?> </h2>
 			<div class="body-tb">
 				<label class="label" for="nome"> Nome </label>
 				<input class="input" name="nome" type="text" placeholder="<?=$funcionario->getNome()?>" disabled>
