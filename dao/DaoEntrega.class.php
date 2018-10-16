@@ -2,7 +2,25 @@
 	include_once("includes/Conexao.class.php");	
 
 	class DaoEntrega{
-		public function listarEntrega() {
+		public function cadastrarEntrega($post){
+			$id_empresa;
+			$id_empresa = $_SESSION['codigo'];
+			$sql = "INSERT INTO tb_entrega (id_entrega, id_empresa, produto, entregador, data_entrega, descricao, imagem, destinatario, preco) VALUES ('', :id_empresa, :produto, :, :entregador, :dataEntrega, :descricao, '', :destinatario, :preco)";
+			
+
+
+			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
+			$sqlPreparado->bindValue(":id_empresa",$id_empresa);
+			$sqlPreparado->bindValue(":produto",$post['produto']);
+			$sqlPreparado->bindValue(":entregador",$post['entregador']);
+			$sqlPreparado->bindValue(":data_entrega",$post['data']);
+			$sqlPreparado->bindValue(":descricao",$post['descricao']);
+			$sqlPreparado->bindValue(":destinatario",$post['destinatario']);
+			$sqlPreparado->bindValue(":preco",$post['preco']);			
+			$sqlPreparado->execute();
+		}
+
+		public function listarEntregas() {
 			$sql = "SELECT * FROM tb_entrega";
 			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
 			$resposta = $sqlPreparado->execute();
@@ -17,6 +35,25 @@
 			return $vetorDeObjetos; 
 		}
 
+		public function excluir($id){
+			$sql = "DELETE  FROM tb_entrega WHERE id_entrega=:id";
+			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
+			$sqlPreparado->bindValue(":id",$id);
+			$resposta = $sqlPreparado->execute();
+		} 
+
+
+
+		public function buscarPorId($id){
+			$sql = "select * from tb_entrega where id_entrega = :id";
+			
+			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
+			$sqlPreparado->bindValue(":id",$id);
+			$resposta = $sqlPreparado->execute();
+			$entrega = $this->transformaDadosDoBancoEmObjeto($sqlPreparado->fetch(PDO::FETCH_ASSOC));
+			return $entrega;
+		}
+
 		public function transformaDadosDoBancoEmObjeto($dadosDoBanco){
 			$entrega = new Entrega();
 			$entrega->setIdEntrega($dadosDoBanco['id_entrega']);
@@ -27,8 +64,7 @@
 			$entrega->setDescricao($dadosDoBanco['descricao']);
 			$entrega->setDestinatario($dadosDoBanco['destinatario']);
 			$entrega->setImagem($dadosDoBanco['imagem']);
-			$entrega->setPreco($dadosDoBanco['preco']);
-			$entrega->setInfoRemetente($dadosDoBanco['info_remetente']);		
+			$entrega->setPreco($dadosDoBanco['preco']);	
 			return $entrega;
 		
 		}

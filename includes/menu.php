@@ -55,7 +55,7 @@
 				
 				
 				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-			        <a class="nav-link" href="entregas.php">
+			        <a class="nav-link" href="entrega.php">
 			            <i class="fas fa-truck"></i>
 			            <span class="nav-link-text">Entregas</span>
 			        </a>

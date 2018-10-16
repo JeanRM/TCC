@@ -5,6 +5,9 @@
 	top:60px; 
 }
 
+.af{
+	padding:5px;
+}
 .head-tb{
 	width:80%;
 	height:100%;
@@ -13,6 +16,19 @@
 	padding-bottom:27px;
 	border-radius:30px;
 	box-shadow: 0 0 20px 10px rgba(0,0,0,.4)
+}
+
+#centro{
+	width:95%;
+	height:90%;
+	margin:auto;
+	margin-top:7%;
+	background-color:white;
+}
+
+.a{
+	color:white;
+	border: none;
 }
 
 .body-tb{

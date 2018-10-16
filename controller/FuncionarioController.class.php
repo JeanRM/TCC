@@ -20,6 +20,7 @@
 			$funcionario->setNome($dadosDoFormulario['nome']);
 			$funcionario->setLogin($dadosDoFormulario['login']);
 			$funcionario->setSenha($dadosDoFormulario['senha']);
+			$funcionario->setEmail($dadosDoFormulario['email']);
 			return $funcionario;
 		}
 
@@ -39,11 +40,14 @@
 
 		public function atualizarFuncionario($post){
 			$dao = new DaoFuncionario();
-			$dao->atualizar($post);
+			$resposta = $dao->atualizar($post);
+			if($resposta > 0){
+			header('location:funcionario.php?$rps=s');
 		
 		}
 		
 	}
+}
 
 	
 ?>

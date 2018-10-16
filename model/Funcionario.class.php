@@ -4,6 +4,7 @@
 		private $nome;
 		private $login;
 		private $senha;
+		private $email;
 		
 
 
@@ -34,6 +35,13 @@
 		}
 		public function setSenha($senha){
 			$this->senha = $senha;
+		}
+
+		public function getEmail(){
+			return $this->email;
+		}
+		public function setEmail($email){
+			$this->email = $email;
 		}
 
 
