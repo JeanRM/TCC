@@ -12,8 +12,7 @@
 
 
 	if (isset($_POST["btn-cadastrar"])){		
-		$controle -> cadastrarFuncionario($_POST);
-
+		$resposta = $controle -> cadastrarFuncionario($_POST);
 	} 
 
  	if (isset($_GET['id'])){
@@ -76,16 +75,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
 		<!-- MODAL DE CADASTRO -->
 		<div class="modal fade cadastre" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 		 	<div class="modal-dialog modal-lg">
@@ -118,31 +107,26 @@
 		    </div>
 		</div>
 
-
-
-
-
-		<!-- Modal de exclusao-->
-<div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title" id="modalLabel">Atenção!</h4>
-      </div>
-      <div class="modal-body">
-        Deseja realmente excluir este funcionário?
-      </div>
-      <div class="modal-footer">
-        <a type="button"  class="btn btn-primary a" href="funcionario.php?id=<?=$funcionario-> getIdFuncionario()?>">Sim</a>
- 		<a type="button" class="btn btn-default a" data-dismiss="modal">N&atilde;o</a>
-      </div>
-    </div>
-  </div>
-</div> <!-- /.modal -->
-
-		<script src="componentes/jquery/jquery-3.2.1.min.js"></script>
-		<script src="componentes/bootstrap/js/bootstrap.min.js"></script>
+	<!-- Modal de exclusao-->
+	<div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+	    		<div class="modal-header">
+	        		<h4 class="modal-title" id="modalLabel">Atenção!</h4>
+	    		</div>
+	    		<div class="modal-body">
+	        		Deseja realmente excluir este funcionário?
+	      		</div>
+	      		<div class="modal-footer">
+	        		<a type="button"  class="btn btn-primary a" href="funcionario.php?id=<?=$funcionario-> getIdFuncionario()?>">Sim</a>
+	 				<a type="button" class="btn btn-default a" data-dismiss="modal">N&atilde;o</a>
+	      		</div>
+	    	</div>
+	  	</div>
 	</div>
+
+	<script src="componentes/jquery/jquery-3.2.1.min.js"></script>
+		<script src="componentes/bootstrap/js/bootstrap.min.js"></script>
 
 </body>
 </html>

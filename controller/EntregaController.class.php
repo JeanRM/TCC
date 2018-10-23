@@ -1,5 +1,6 @@
  <?php
 	include_once("includes/Conexao.class.php");	
+	
 
 	class entregaController{
 		public function cadastrarEntrega($post){
@@ -7,7 +8,7 @@
 			$vetorDeProdutos= $dao->cadastrarEntrega($post); 
 			return $vetorDeProdutos; 
 		}
-		public function buscarEntrega(){
+		public function listarEntrega(){
 			$dao = new DaoEntrega();
 			$vetorDeProdutos= $dao->listarEntrega(); 
 			return $vetorDeProdutos; 

@@ -27,14 +27,14 @@
 			<h3 class="page-header">Visualizando Funcionário <?=$funcionario->getNome()?></h3>
 		  	
 		  	<div class="row">
-	        	<div class="form-group col-md-6">
+	        	<div class="form-group col-md-6 vai-pro-fundo">
 	            	<input type="hidden" name="codigo" value="">
 	        	  	
 	        	  	<label for="exampleInputEmail1">Nome</label>	        	  	
 	        	  	<input type="text" class="form-control" name="nome"  placeholder="<?=$funcionario->getNome()?>" disabled>
 	        	</div>
 	      	    
-	      	    <div class="form-group col-md-6">
+	      	    <div class="form-group col-md-6 vai-pro-fundo">
 	        		<label for="exampleInputEmail1">Login</label>
 	        		<input type="text" class="form-control" name="login"  placeholder="<?=$funcionario->getLogin()?>" disabled>
 	        	</div>
@@ -42,23 +42,24 @@
 
 
 	      	<div class="row">
-	        	<div class="form-group col-md-6">
+	        	<div class="form-group col-md-6 vai-pro-fundo">
 	        		<label for="exampleInputEmail1">Senha</label>	        		
 	        		<input type="text" class="form-control" name="nome" value="<?=$funcionario->getSenha()?>" disabled>
 	        	</div>
 
-	      	    <div class="form-group col-md-6">
+	      	    <div class="form-group col-md-6 vai-pro-fundo">
 	        		<label for="exampleInputEmail1">Email</label>
 	        		<input type="text" class="form-control" name="login" placeholder="<?=$funcionario->getEmail()?>" disabled>
 	        	</div>
 	      	</div>
 
-	      	<div class="form-group position-relative">
+	      	<div class="form-group vai-pro-fundo">
 				<td class="actions">
-					<a class="btn btn-primary btn-xs" href="funcionario.php">Voltar</a>
-					<a class="btn btn-success btn-xs" href="editaFuncionario.php">Editar</a>
+					<a class="btn btn-primary float-right" href="funcionario.php" name="salvar">Voltar</a>
 
-					<a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#delete-modal">Excluir</a>
+					<a class="btn btn-success float-right" href="editaFuncionario.php">Editar</a>
+
+					<a href="#" class="btn btn-danger float-right" data-toggle="modal" data-target="#delete-modal">Excluir</a>
 				</td>			
 			</div>
 		</div>

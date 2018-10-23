@@ -6,12 +6,8 @@
 			$dao = new DaoFuncionario();
 			$funcionario = $this->formularioDeCadastroParaFuncionario($dadosDoFormulario);
 			$resposta= $dao->cadastrarFuncionarioNoBd($funcionario);
-
-			if($resposta > 0){
-				 return "Salvou";
-			}else{
-				 return "Não Salvou";
-			}
+			return $resposta;
+			
 
 		}
 

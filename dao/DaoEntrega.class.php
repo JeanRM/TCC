@@ -3,20 +3,19 @@
 
 	class DaoEntrega{
 		public function cadastrarEntrega($post){
-			$id_empresa;
 			$id_empresa = $_SESSION['codigo'];
-			$sql = "INSERT INTO tb_entrega (id_entrega, id_empresa, produto, entregador, data_entrega, descricao, imagem, destinatario, preco) VALUES ('', :id_empresa, :produto, :, :entregador, :dataEntrega, :descricao, '', :destinatario, :preco)";
+			$sql = "INSERT INTO tb_entrega (id_entrega, id_empresa, produto, data_entrega, descricao, destinatario, preco) VALUES ('', :id_empresa, :produto, :, :dataEntrega, :descricao, '', :destinatario, :preco)";
 			
 
 
 			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
 			$sqlPreparado->bindValue(":id_empresa",$id_empresa);
 			$sqlPreparado->bindValue(":produto",$post['produto']);
-			$sqlPreparado->bindValue(":entregador",$post['entregador']);
 			$sqlPreparado->bindValue(":data_entrega",$post['data']);
 			$sqlPreparado->bindValue(":descricao",$post['descricao']);
 			$sqlPreparado->bindValue(":destinatario",$post['destinatario']);
-			$sqlPreparado->bindValue(":preco",$post['preco']);			
+			$sqlPreparado->bindValue(":preco",$post['preco']);		
+			$sqlPreparado->bindValue(":entregador",$post['preco']);				
 			$sqlPreparado->execute();
 		}
 

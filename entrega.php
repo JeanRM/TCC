@@ -92,7 +92,7 @@
 						<div class="form-group">
 							<span class="input-group-addon" id="basic-addon1">Imagem</span>
 							<div class="custom-file">
-								<label class="custom-file-label" for="validatedCustomFile">(opcional)</label>
+								<label class="custom-file-label" for="validatedCustomFile"></label>
 							    <input name="imagem" type="file"  class="custom-file-input" id="validatedCustomFile" lang="pt" >	  
 							</div>
 						</div>
@@ -118,13 +118,7 @@
 						</div>
 
 						<div class="form-group">
-							<label for="entregador">Entregador</label>
-							 <input name="entregador" type="text" id="entregador"  class="form-control" placeholder="Ex:Maria" required>
-
-							<select class="form-control" id="sel1">
-							    <option>Igor</option>
-							    <option>Samuel</option>
-							</select>
+							
 						</div>
 
 
