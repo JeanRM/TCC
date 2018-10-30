@@ -37,11 +37,11 @@
 			<thead>
 				<tr>
 					<th>Nome</th>
-					<th>Login</th>
-					<th>Senha</th>
-					<th>Email</th>
 					<th>Status</th>
 					<th>Entregas Agendadas</th>
+					<th></th>
+					<th></th>
+					<th></th>
 					<th class="actions">Ações</th>
 				</tr>
 			</thead>
@@ -52,11 +52,11 @@
 				?>
 				<tr>
 					<td><?=$funcionario->getNome()?></td>
-					<td><?=$funcionario->getLogin()?></td>
-					<td><?=$funcionario->getSenha()?></td>
-					<td><?=$funcionario->getEmail()?></td>
 					<td>Livre</td>
 					<td>Em Construção</td>
+					<td></td>
+					<td></td>
+					<td></td>
 					<td class="actions">
 						<a class="btn btn-success btn-xs af" href="visualizaFuncionario.php?id=<?=$funcionario-> getIdFuncionario()?>">Mais Info</a>
 						<a class="btn btn-warning btn-xs af" href="editaFuncionario.php?id=<?=$funcionario-> getIdFuncionario()?>">Editar</a>

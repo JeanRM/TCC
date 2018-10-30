@@ -1,12 +1,12 @@
 <?php
-  include_once "controller/FuncionarioController.class.php";
-  $controller = new FuncionarioController();
+  include_once "controller/EntregaController.class.php";
+  $controller = new entregaController();
 
   if(isset($_POST["salvar"])) {
-     $controller -> atualizarFuncionario($_POST);
+     $controller->atualizarEntrega($_POST);
   }else{
     $id=$_GET["id"];
-    $funcionario = $controller ->buscarFuncionarioPorId($id);
+    $entrega = $controller->buscarEntregaPorId($id);
   }
 
 ?>
@@ -21,33 +21,34 @@
 <body>
   <div id="centro">
     <div id="main" class="container-fluid">
-      <h3 class="page-header">Editar Funcionário</h3>
+      <h3 class="page-header">Editar Entrega</h3>
     
       <form method="POST">	
         <div class="row">
           <div class="form-group col-md-6">
-            <input type="hidden" name="codigo" value="<?=$funcionario->getIdFuncionario()?>">
-            <label for="exampleInputEmail1">Nome</label>
-            <input type="text" class="form-control" name="nome" id="exampleInputEmail1" placeholder="Digite novo nome" required>
+            <input type="hidden" name="codigo" value="<?=$entrega->getIdEntrega()?>">
+            <label for="exampleInputEmail1">Produto</label>
+            <input type="text" class="form-control" name="produto" placeholder="Digite novo nome" required>
           </div>
     	    
           <div class="form-group col-md-6">
-            <label for="exampleInputEmail1">Login</label>
-            <input type="text" class="form-control" name="login" id="exampleInputEmail1" placeholder="Digite novo Login" required>
+            <label for="exampleInputEmail1">Entregador</label>
+            <input type="text" class="form-control" name="entregador" required>
       	  </div>
         </div>
 
         <div class="row">
           <div class="form-group col-md-6">
-            <label for="exampleInputEmail1">Senha</label>
-            <input type="text" class="form-control" name="senha" id="exampleInputEmail1" placeholder="Digite novo nome" required>
+            <label for="exampleInputEmail1">Data De Entrega</label>
+            <input type="date" class="form-control" name="data_entrega" required>
           </div>
           
           <div class="form-group col-md-6">
-            <label for="exampleInputEmail1">Email</label>
-            <input type="email" class="form-control" name="email" id="exampleInputEmail1" placeholder="Digite novo Login" required>
+            <label for="exampleInputEmail1">Status</label>
+            <input type="text" value="teste" class="form-control" name="status">
           </div>
         </div>
+
   	
         <div class="form-group pull-right position-relative">
           <div class="col-md-12">

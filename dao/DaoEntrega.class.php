@@ -1,6 +1,6 @@
- <?php
+  <?php
 	include_once("includes/Conexao.class.php");	
-
+	include_once("model/Entrega.class.php");	
 	class DaoEntrega{
 		public function cadastrarEntrega($post){
 			$id_empresa = $_SESSION['codigo'];
@@ -39,7 +39,22 @@
 			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
 			$sqlPreparado->bindValue(":id",$id);
 			$resposta = $sqlPreparado->execute();
-		} 
+		}
+
+		public function atualizar($post){
+			$sql = "UPDATE tb_entrega SET id_entrega=:id, produto=:produto, entregador=:entregador, data_entrega=:data, status=:status WHERE id_funcionario=:id";
+			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
+			$sqlPreparado->bindValue(":id",$post['codigo']);
+			$sqlPreparado->bindValue(":produto",$post['nome']);
+			$sqlPreparado->bindValue(":entregador",$post['entregador']);
+			$sqlPreparado->bindValue(":data",$post['data_entrega']);
+			$sqlPreparado->bindValue(":status",$post['status']);
+			$resposta = $sqlPreparado->execute();
+			if($resposta > 0){
+				header('location:entrega.php');		
+			}
+			return $resposta;
+		}		 
 
 
 
@@ -65,8 +80,9 @@
 			$entrega->setImagem($dadosDoBanco['imagem']);
 			$entrega->setPreco($dadosDoBanco['preco']);	
 			return $entrega;
-		
 		}
+
+
 
 	}
 

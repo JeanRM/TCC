@@ -37,9 +37,7 @@
 			<thead>
 				<tr>
 					<th>Produto</th>
-					<th>Imagem</th>
 					<th>Data da Entrega</th>
-					<th>Preço</th>
 					<th>Destinatário</th>
 					<th>Entregador</th>
 					<th>Status</th>
@@ -53,9 +51,7 @@
 				?>
 				<tr>
 					<td><?=$entrega->getProduto()?></td>
-					<td>Em Construção</td>
 					<td><?=$entrega->getDataEntrega()?></td>
-					<td><?=$entrega->getPreco()?> Reais</td>
 					<td><?=$entrega->getDestinatario()?></td>
 					<td><?=$entrega->getEntregador()?></td>
 					<td><?=$entrega->getStatus()?></td>

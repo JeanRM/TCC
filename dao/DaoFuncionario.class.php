@@ -1,4 +1,4 @@
-<?php
+ <?php
 	include_once("includes/Conexao.class.php");
 	include_once ("model/Funcionario.class.php");	
 
