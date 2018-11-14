@@ -71,9 +71,9 @@
 
 
 			    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-			        <a class="nav-link" href="#">
-			            <i class="fas fa-screwdriver"></i>
-			            <span class="nav-link-text">Em Construção</span>
+			        <a class="nav-link" href="relatorio.php">
+			            <i class="fas fa-chart-bar"></i>
+			            <span class="nav-link-text">Relatórios</span>
 			        </a>
 			    </li>
 

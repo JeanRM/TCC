@@ -7,8 +7,8 @@
 			$dao = new DaoUsuario();
 			$usuario = $dao->buscarEmpresaPorLogin($post['login']);
 			
-			if(is_null($usuario->getIdEmpresa())){
-				return array("erro"=>true, "msg"=>"Login não encontrado!");   
+			if(is_null($usuario->getIdEmpresa())){  
+				header("location: index.php?erro=true&msg= Login não encontrado");
 			}else{
 
 				if($usuario->getSenha()==$post['senha']){
@@ -21,7 +21,7 @@
 
 					header('location:entrou.php');
 				}else{
-					return array("erro"=>true, "msg"=>"Senha Incorreta!");	
+					header("location: index.php?erro=true&msg= Senha Incorreta");
 				}
 			}	
 		}

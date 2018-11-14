@@ -12,12 +12,23 @@
 	if (isset($_POST["btn-logar"])){
 		$mensagem = $controle->logar($_POST);
 	}
-	else{
-		$mensagem ['msg']="";
+
+	if ($_GET){
+		$mensagem=$_GET["msg"];
 	}
+	
+
+
 ?>
+	
 <head>
 	<link rel="stylesheet" href="css/estilo-tela-login.css"/>
+
+	<script type="text/javascript">		
+		function emConstrucao(){
+			alert("Desculpe, área em desenvolvimento! ");
+		}
+	</script>
 </head> 
 
 <body>
@@ -26,6 +37,8 @@
    		<div class="col-sm-12">
 			<!-- BOTÃO CADASTRE-SE -->
 			<button type="button" class="btn btn-info float-right btn-cadastro cadastre-se" data-toggle="modal" data-target=".cadastre">Cadastre-se</button>
+
+			<button type="button" class="btn btn-success float-right btn-cadastro cadastre-se" onclick="emConstrucao()">Rastrear Produto</button>
   		</div>
    		
 		<div class="form-centralizado">
@@ -43,16 +56,22 @@
 					</div >
 
 					<p>
-						<?=$mensagem['msg']?>
+	
 					</p>
 
-					<input class="btn btn-block btn-info enviar" type="submit" name="btn-logar" id="btn-logar" value="Logar" >
+					<input class="btn btn-info float-left" type="submit" name="btn-logar" id="btn-logar" value="Área Empresarial" >
+					<input class="btn btn-success float-right" type="submit" name="btn-logar" id="btn-logar" value="Funcionario" >
 
 				</div>
 			</form>
 		</div>			
-	
+		
 	</div>
+	<div id="bottom">
+			<p>
+				© 2018 Copyright - todos os direitos reservados
+			</p>
+		</div>
 
 	<!-- MODAL DE CADASTRO -->
 	<div class="modal fade cadastre" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -60,59 +79,37 @@
 	    <div class="modal-content">
 
 			<div class="modal-body">
-				<a class="tipo-cadastro" href="#">Cliente</a>
-				<a class="tipo-cadastro" href="#">Empresa</a>
 
 		      	<form method="POST">
-					<div class="corpo-modal">
-						<img src="imagens/icone-indefinido.jpg" class="tamanho-imagem"/>
-						<div class="informacoes-dados">
-							<div class="input-group dados">
-								<span for="cnome">Nome</span>
-		  						<input type="text" placeholder="Digite Seu Nome" name="cnome" required>
-							</div>
-		
-							<br>
-							<div class="input-group dados">
-			  					<span for="clogin">Login</span>
-			 	 				<input type="text" placeholder="Digite Seu login"  name="clogin" required>
-							</div>
-							<br>
-							<div class="input-group dados">
-			  					<span for="csenha"> Senha</span>
-			  					<input type="password" placeholder="Digite Sua senha" name="csenha" required>
-							</div>
-							<br>
-							<div class="input-group dados">
-				  				<span class="input-group-addon" id="basic-addon1">CPF</span>
-				  				<input type="text" class="form-control" placeholder="Ex: 000.000.000-00" aria-describedby="basic-addon1" name="cCpf" required>
-							</div>
+					<div class="corpo-modal">						
+						<div id="cadastro-funcionario">
+						 	<span class="input-group-addon" id="basic-addon1">Nome</span>
+							<input type="text" class="form-control" placeholder="Nome Empresa" aria-describedby="basic-addon1" name="cnome" required>
 
-							<br>
-							<div class="input-group dados">
-				  				<span class="input-group-addon" id="basic-addon1"> Telefone de Contato</span>
-				  				<input type="number" class="form-control" placeholder="Digite o Telefone" aria-describedby="basic-addon1" name="ctelefone" required>
-							</div>
+							<span class="input-group-addon" id="basic-addon1">Login</span>
+							<input type="text" class="form-control" placeholder="Ex: Velozmente01" aria-describedby="basic-addon1" name="clogin" required>
 
-							<br>
-							<div class="input-group dados">
-							  	<span class="input-group-addon" id="basic-addon1"> Email</span>
-							  	<input type="text" class="form-control" placeholder="Ex:Velozmente@gmail.com" aria-describedby="basic-addon1" name="cemail" required>
-							</div>
+							<span class="input-group-addon" id="basic-addon1">Senha</span>
+							<input type="password" class="form-control" placeholder="Ex: velozmente001" aria-describedby="basic-addon1" name="csenha" required>
 
+							<span class="input-group-addon" id="basic-addon1">Email</span>
+							<input type="email" class="form-control" placeholder="Ex: velozmente0000@gmail.com" aria-describedby="basic-addon1" name="cemail" required>
 
-							<div class="input-group dados">
-								<label> Sexo:</label>
-								<label class="checkbox-inline esex"><input type="radio" name="optradio" value="1"> Masculino</label>
+							<span class="input-group-addon" id="basic-addon1">Cnpj</span>
+							<input type="number" class="form-control" placeholder="" aria-describedby="basic-addon1" name="cCpf" required>
 
-								<label class="checkbox-inline esex"><input type="radio" name="optradio" value="1">Feminino</label>
-							</div>
+							<span class="input-group-addon" id="basic-addon1">Endereco</span>
+							<input type="text" class="form-control" placeholder="" aria-describedby="basic-addon1" name="cEndereco" required>
+
+							<span class="input-group-addon" id="basic-addon1">Telefone</span>
+							<input type="number" class="form-control" placeholder="" aria-describedby="basic-addon1" name="cTelefone" required>
+
 						</div>
-					</div>
-					
+
+							
 					<div class="modal-footer">
-						<button type="submit" name="btn-cadastrar" class="btn btn-primary">Cadastrar</button>
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+						<button type="submit" class="btn btn-success" name="btn-cadastrar">Cadastrar</button>
+						<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
 					</div>
 
 				</form>
@@ -124,13 +121,15 @@
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header">
-	        <h5 class="modal-title">Ops!</h5>
+	        <h5 class="modal-title">Atenção!</h5>
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
 	          <span aria-hidden="true">&times;</span>
 	        </button>
 	      </div>
 	      <div class="modal-body">
-	        <?=$mensagem?>
+	        <?php 
+	        	echo $mensagem; 
+	        ?>
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -150,6 +149,6 @@
 	<?php
 		}
 	?>
-
+	
 </body>
 </html>

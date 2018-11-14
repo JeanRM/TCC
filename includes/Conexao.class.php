@@ -17,7 +17,7 @@ class Conexao{
 	}
 
 	public static function meDeAConexao(){
-		if(!self::$conexao){
+		if(!self::$conexao){ 
 			new Conexao();
 		}
 		return self::$conexao;
