@@ -211,15 +211,15 @@
         </div>
         <div class="row">
           <div class="col-lg-12">
-            <form id="contactForm" name="sentMessage" novalidate="novalidate">
+            <form>
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <input class="form-control" id="name" type="text" placeholder="Digite Seu Nome" required="required" data-validation-required-message="Digite Seu Nome">
+                    <input class="form-control" id="name" type="text" placeholder="Digite Seu Nome" >
                     <p class="help-block text-danger"></p>
                   </div>
                   <div class="form-group">
-                    <input class="form-control" id="email" type="email" placeholder="Digite Seu Email" required="required" data-validation-required-message="Digite um Email">
+                    <input class="form-control" id="email" type="email" placeholder="Digite Seu Email">
                     <p class="help-block text-danger"></p>
                   </div>
                   <div class="form-group">
@@ -229,14 +229,14 @@
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <textarea class="form-control" id="message" placeholder="Digite Sua Mensagem" required="required" data-validation-required-message="Digite uma mensagem"></textarea>
+                    <textarea class="form-control" id="message" placeholder="Digite Sua Mensagem"></textarea>
                     <p class="help-block text-danger"></p>
                   </div>
                 </div>
                 <div class="clearfix"></div>
                 <div class="col-lg-12 text-center">
                   <div id="success"></div>
-                  <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Enviar</button>
+                  <button id="#" class="btn btn-primary btn-xl text-uppercase" onclick="emConstrucao()" type="#">Enviar</button>
                 </div>
               </div>
             </form>
