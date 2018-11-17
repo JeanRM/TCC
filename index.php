@@ -59,7 +59,7 @@
               <a class="nav-link js-scroll-trigger" href="#contact">Contato</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#">Rastrear Produto</a>
+              <a class="nav-link js-scroll-trigger" onclick="emConstrucao()" href="#">Rastrear Produto</a>
             </li>
           </ul>
         </div>
@@ -104,7 +104,7 @@
         <div class="row">
           <div class="col-lg-12 text-center">
             <h2 class="section-heading text-uppercase">Sobre Nós</h2>
-            <h3 class="section-subheading text-muted">Nosso sistema auxilia para que empresas tenham uma melhor performance em seu quesito de entregas, buscando melhores rotas com o menor tempo possível com apenas alguns comandos, beneficiando a empresa e seu cliente.
+            <h3 class="section-subheading text-muted">Nosso sistema auxilia empresas para que tenham uma melhor performance em seu quesito de entregas, buscando melhores rotas com o menor tempo possível com apenas alguns comandos, beneficiando a empresa e seus clientes.
  </h3>
             <h3 class="section-subheading text-muted">Por que usar o velozmente?</h3>
           </div>
@@ -321,7 +321,9 @@
     <!-- Custom scripts for this template -->
     <script src="componentes/js/agency.min.js"></script>
     <script type="text/javascript">
-      
+      function emConstrucao(){
+        alert("Pagina ainda em Desenvolvimento!");
+      }
 
     </script>
 
