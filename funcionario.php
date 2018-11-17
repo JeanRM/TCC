@@ -3,11 +3,12 @@
 
 <?php
  	include_once("includes/menu.php");
- 	include_once("dao/DaoFuncionario.class.php");
 	include_once("model/Funcionario.class.php");
 	include_once("controller/FuncionarioController.class.php");
-	$dao = new DaoFuncionario();	
 	$controle = new FuncionarioController();
+	include_once("dao/DaoFuncionario.class.php");
+	$dao = new DaoFuncionario();	
+	
 	$id; 
 
 
@@ -37,11 +38,9 @@
 			<thead>
 				<tr>
 					<th>Nome</th>
-					<th>Status</th>
-					<th>Entregas Agendadas</th>
-					<th></th>
-					<th></th>
-					<th></th>
+					<th>Login</th>
+					<th>Senha</th>
+					<th>Email</th>
 					<th class="actions">Ações</th>
 				</tr>
 			</thead>
@@ -52,14 +51,12 @@
 				?>
 				<tr>
 					<td><?=$funcionario->getNome()?></td>
-					<td>Livre</td>
-					<td>Em Construção</td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td><?=$funcionario->getLogin()?></td>
+					<td><?=$funcionario->getSenha()?></td>
+					<td><?=$funcionario->getEmail()?></td>
 					<td class="actions">
-						<a class="btn btn-success btn-xs af" href="visualizaFuncionario.php?id=<?=$funcionario-> getIdFuncionario()?>">Mais Info</a>
-						<a class="btn btn-warning btn-xs af" href="editaFuncionario.php?id=<?=$funcionario-> getIdFuncionario()?>">Editar</a>
+						<a class="btn btn-success btn-xs af" href="visualizaFuncionario.php?id=<?=$funcionario->getIdFuncionario()?>">Mais Info</a>
+						<a class="btn btn-warning btn-xs af" href="editaFuncionario.php?id=<?=$funcionario->getIdFuncionario()?>">Editar</a>
 
 						<a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#delete-modal">Excluir</a>
 					</td>
@@ -92,7 +89,7 @@
 								<input type="password" class="form-control" placeholder="Senha Funcionario" aria-describedby="basic-addon1" name="senha" required>
 
 								<span class="input-group-addon" id="basic-addon1">Email</span>
-								<input type="email" class="form-control" placeholder="Senha Funcionario" aria-describedby="basic-addon1" name="email" required>
+								<input type="email" class="form-control" placeholder="Email Funcionario" aria-describedby="basic-addon1" name="email" required>
 
 								
 							</div>

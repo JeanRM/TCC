@@ -1,0 +1,91 @@
+ .btn-cadastro{
+	position:absolute;
+	display:block;
+	right:50px;
+	top:60px; 
+}
+
+.af{
+	padding:5px;
+}
+.head-tb{
+	width:80%;
+	height:100%;
+	background-color:rgba(0,0,0,.7);
+	margin:110px auto;
+	padding-bottom:27px;
+	border-radius:30px;
+	box-shadow: 0 0 20px 10px rgba(0,0,0,.4)
+}
+
+#centro{
+	width:95%;
+	height:90%;
+	margin:auto;
+	margin-top:10%;
+	background-color:white;
+}
+
+a{
+	color:white;
+	border: none;
+	margin:5px;
+}
+
+.body-tb{
+	background-color:white;
+	width:99%;
+	height:95%;
+	margin:0px auto;
+	border:1px 1px 0px 1px solid black;
+	box-shadow: 0 0 20px 10px rgba(0,0,0,.4)
+}
+
+.bottom-tb{
+	display:block;
+	background-color:white;
+	width:99%;
+	height:95%;
+	margin:0px auto;
+	border-top:1px solid grey;
+	border:0px 1px 0px 1px solid black;
+	
+}
+
+.botao-tabela{
+	display:inline-block;
+	right:0px;
+	padding:5px;
+	margin:5px 20px 5px 5px;
+
+}
+
+
+.teste{
+	color:white;
+	margin:auto 25px;
+	padding:5px;
+	font-size:22px;
+	font-family: Impact;
+}
+
+
+
+.label{
+	margin:10px 0px 10px 15px;
+	font-family:Arial;	
+	width:10%;
+	text-align:center;
+
+}
+
+.input{
+	padding:2px;
+	margin:auto 7px;
+	width:80%;
+	box-shadow: 0 0 2px 1px rgba(0,0,0,.4)
+}
+
+.vai-pro-fundo{
+	position: static !important;
+} 

@@ -2,15 +2,21 @@
 <html lang="pt-br">
 
  <?php
- 	include_once("includes/head.php");
-	include_once ("controller/LoginController.class.php");
+ 	include_once("empresa/includes/head.php");
+	include_once ("empresa/controller/LoginController.class.php");
 	$controle = new LoginController();
 
 	if (isset($_POST["btn-cadastrar"])){
 		$mensagem = $controle->cadastrarEmpresa($_POST);
 	}
-	if (isset($_POST["btn-logar"])){
-		$mensagem = $controle->logar($_POST);
+
+	if (isset($_POST["btn-logar-empresa"])){
+		$mensagem = $controle->logarEmpresa($_POST);
+	}
+
+	if (isset($_POST["btn-logar-funcionario"])){
+		$mensagem = $controle->logarFuncionario($_POST);
+
 	}
 
 	if ($_GET){
@@ -22,7 +28,7 @@
 ?>
 	
 <head>
-	<link rel="stylesheet" href="css/estilo-tela-login.css"/>
+	<link rel="stylesheet" href="empresa/css/estilo-tela-login.css"/>
 
 	<script type="text/javascript">		
 		function emConstrucao(){
@@ -59,8 +65,8 @@
 	
 					</p>
 
-					<input class="btn btn-info float-left" type="submit" name="btn-logar" id="btn-logar" value="Área Empresarial" >
-					<input class="btn btn-success float-right" type="submit" name="btn-logar" id="btn-logar" value="Funcionario" >
+					<input class="btn btn-info float-left" type="submit" name="btn-logar-empresa" id="btn-logar" value="Área Empresarial" >
+					<input class="btn btn-success float-right" type="submit" name="btn-logar-funcionario" id="btn-logar" value="Funcionario" >
 
 				</div>
 			</form>

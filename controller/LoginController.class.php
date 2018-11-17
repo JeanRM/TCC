@@ -3,12 +3,16 @@
 	include_once ("model/Usuario.class.php");
 	
 	class LoginController{
-		public function logar($post){
+		public function logarEmpresa($post){
 			$dao = new DaoUsuario();
 			$usuario = $dao->buscarEmpresaPorLogin($post['login']);
 			
 			if(is_null($usuario->getIdEmpresa())){  
-				header("location: index.php?erro=true&msg= Login não encontrado");
+				?>
+					<script type="text/javascript">
+						alert("Login Não Encontrado");
+					</script>
+				<?php
 			}else{
 
 				if($usuario->getSenha()==$post['senha']){
@@ -21,7 +25,42 @@
 
 					header('location:entrou.php');
 				}else{
-					header("location: index.php?erro=true&msg= Senha Incorreta");
+					?>
+					<script type="text/javascript">
+						alert("Senha Incorreta");
+					</script>
+					<?php
+				}
+			}	
+		}
+
+		public function logarFuncionario($post){
+			$dao = new DaoUsuario();
+			$usuario = $dao->buscarFuncionarioPorLogin($post['login']);
+			
+			if(is_null($usuario->getIdFuncionario())){  
+				?>
+					<script type="text/javascript">
+						alert("Login Não Encontrado");
+					</script>
+				<?php
+			}else{
+
+				if($usuario->getSenha()==$post['senha']){
+					session_start();
+
+            		$_SESSION['nome'] 	= $usuario->getNome();
+            		$_SESSION['codigo'] = $usuario->getIdFuncionario();
+            		$_SESSION['logado'] = true;
+            		
+
+					header('location:funcionario/Funcionario.php');
+				}else{
+					?>
+						<script type="text/javascript">
+							alert("Senha Incorreta");
+						</script>
+					<?php
 				}
 			}	
 		}
