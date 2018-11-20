@@ -5,7 +5,7 @@
 	class entregaController{
 		public function cadastrarEntrega($post){
 			$dao = new DaoEntrega();
-			$entrega= $this->formularioDeCadastroParaEntrega($post);
+			$entrega = $this->formularioDeCadastroParaEntrega($post);
 			$resposta= $dao->cadastrarEntrega($entrega); 
 			return $resposta;
 

@@ -105,7 +105,15 @@
 						    <input name="destinatario" type="text" id="destinatario"  class="form-control" placeholder="" required>
 						</div>
 
-						
+						<div class="form-group">
+						  <label for="sel1">Funcionário Para Realizar Entrega</label>
+						  <select class="form-control" id="sel1">
+						    <option>1</option>
+						    <option>2</option>
+						    <option>3</option>
+						    <option>4</option>
+						  </select>
+						</div>
 								
 					</div>
 			</div>						

@@ -1,21 +1,21 @@
-  <?php
+<?php
 	include_once("includes/Conexao.class.php");	
 	include_once("model/Entrega.class.php");	
 	class DaoEntrega{
 		public function cadastrarEntrega($entrega){
 			$id_empresa;
 			$id_empresa = $_SESSION['codigo'];
-			$sql = "INSERT INTO tb_entrega (id_entrega, id_empresa, produto, data_entrega, descricao, destinatario, preco) VALUES ('', :id_empresa, :produto, :dataEntrega, :descricao, '', :destinatario, :preco)";
-			
-
+			$sql = "INSERT INTO tb_entrega (id_entrega, id_empresa, produto, data_entrega, descricao, destinatario, preco) VALUES ('', :id_empresa, :produto, :dataEntrega, :descricao,  :destinatario, :preco)";
+		
 			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
-			$sqlPreparado->bindValue(":produto",$entrega['produto']);
-			$sqlPreparado->bindValue(":dataEntrega",$entrega['data']);
-			$sqlPreparado->bindValue(":descricao",$entrega['descricao']);
-			$sqlPreparado->bindValue(":destinatario",$entrega['destinatario']);
-			$sqlPreparado->bindValue(":preco",$entrega['preco']);
+			$sqlPreparado->bindValue(":produto",$entrega->getProduto());
+			$sqlPreparado->bindValue(":dataEntrega",$entrega->getDataEntrega());
+			$sqlPreparado->bindValue(":descricao",$entrega->getDescricao());
+			$sqlPreparado->bindValue(":destinatario",$entrega->getDestinatario());
+			$sqlPreparado->bindValue(":preco",$entrega->getPreco());
 			$sqlPreparado->bindValue(":id_empresa",$id_empresa);						
 			$sqlPreparado->execute();
+			
 			return $sqlPreparado->rowCount();
 		}
 
