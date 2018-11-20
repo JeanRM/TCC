@@ -87,12 +87,14 @@ section h3.section-subheading {
 }
 
 ::-moz-selection {
-  background: #fed136;
+  background: blue;
+  color:blue;
   text-shadow: none;
 }
 
 ::selection {
-  background: #fed136;
+  background: blue;
+  color:blue;
   text-shadow: none;
 }
 

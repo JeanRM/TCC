@@ -159,7 +159,7 @@
                   
                 </li>
                 <li class="list-inline-item">
-                  <a href="https://www.facebook.com/igor.pleutin">
+                  <a target="_blank" href="https://www.facebook.com/igor.pleutin">
                     <i class="fab fa-facebook-f"></i>
                   </a>
                 </li>
@@ -174,7 +174,7 @@
               <ul class="list-inline social-buttons">
                
                 <li class="list-inline-item">
-                  <a href="https://www.facebook.com/jean.martins.180">
+                  <a target="_blank" href="https://www.facebook.com/jean.martins.180">
                     <i class="fab fa-facebook-f"></i>
                   </a>
                 </li>
@@ -190,7 +190,7 @@
               <ul class="list-inline social-buttons">
                 
                 <li class="list-inline-item">
-                  <a href="https://www.facebook.com/samuelbeniteszs">
+                  <a target="_blank" href="https://www.facebook.com/samuelbeniteszs">
                     <i class="fab fa-facebook-f"></i>
                   </a>
                 </li>
@@ -261,13 +261,12 @@
  <!-- MODAL DE CADASTRO -->
   <div class="modal fade cadastre" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
-      <div class="modal-content">
+      <div class="modal-content ">
 
       <div class="modal-body">
 
             <form method="POST">
-          <div class="corpo-modal">           
-            <div id="cadastro-funcionario">
+          <div class="corpo-modal cadastre ">           
               <span class="input-group-addon" id="basic-addon1">Nome</span>
               <input type="text" class="form-control" placeholder="Nome Empresa" aria-describedby="basic-addon1" name="cnome" required>
 
@@ -288,7 +287,6 @@
 
               <span class="input-group-addon" id="basic-addon1">Telefone</span>
               <input type="number" class="form-control" placeholder="" aria-describedby="basic-addon1" name="cTelefone" required>
-
             </div>
 
               
