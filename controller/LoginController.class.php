@@ -8,11 +8,7 @@
 			$usuario = $dao->buscarEmpresaPorLogin($post['login']);
 			
 			if(is_null($usuario->getIdEmpresa())){  
-				?>
-					<script type="text/javascript">
-						alert("Login Não Encontrado");
-					</script>
-				<?php
+				header("location: index.php?erro&msg=Login Não Encontrado");
 			}else{
 
 				if($usuario->getSenha()==$post['senha']){
@@ -25,11 +21,7 @@
 
 					header('location:entrou.php');
 				}else{
-					?>
-					<script type="text/javascript">
-						alert("Senha Incorreta");
-					</script>
-					<?php
+					header("location: index.php?erro&msg=Senha Incorreta");
 				}
 			}	
 		}
@@ -39,11 +31,7 @@
 			$usuario = $dao->buscarFuncionarioPorLogin($post['login']);
 			
 			if(is_null($usuario->getIdFuncionario())){  
-				?>
-					<script type="text/javascript">
-						alert("Login Não Encontrado");
-					</script>
-				<?php
+				header("location: index.php?erro&msg=Login Não Encontrado");
 			}else{
 
 				if($usuario->getSenha()==$post['senha']){
@@ -56,11 +44,7 @@
 
 					header('location:funcionario/Funcionario.php');
 				}else{
-					?>
-						<script type="text/javascript">
-							alert("Senha Incorreta");
-						</script>
-					<?php
+					header("location: index.php?erro&msg=Senha Incorreta");
 				}
 			}	
 		}

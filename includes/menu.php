@@ -64,6 +64,13 @@
 
 
 			    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+			        <a class="nav-link" href="cliente.php">
+			        	<i class="fas fa-address-card"></i>
+			        	<span class="nav-link-text">Cliente</span>
+			        </a>
+			    </li>
+
+			    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
 			        <a class="nav-link" href="relatorio.php">
 			            <i class="fas fa-chart-bar"></i>
 			            <span class="nav-link-text">Relatórios</span>
