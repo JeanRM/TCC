@@ -74,7 +74,6 @@
 			$usuario->setLogin($dadosDoFormulario['clogin']);
 			$usuario->setSenha($dadosDoFormulario['csenha']);
 			$usuario->setCnpj($dadosDoFormulario['cCpf']);
-			$usuario->setTelefone($dadosDoFormulario['ctelefone']);
 			$usuario->setEmail($dadosDoFormulario['cemail']);
 			return $usuario;
 		}

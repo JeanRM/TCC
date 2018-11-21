@@ -380,7 +380,7 @@
               <input type="text" class="form-control" placeholder="" aria-describedby="basic-addon1" name="cEndereco" required>
 
               <span class="input-group-addon" id="basic-addon1">Telefone</span>
-              <input type="number" class="form-control" placeholder="" aria-describedby="basic-addon1" name="cTelefone" required>
+              <input type="number" class="form-control" placeholder="" aria-describedby="basic-addon1" name="telefone" required>
             </div>
 
               
