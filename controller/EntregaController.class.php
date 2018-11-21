@@ -45,6 +45,7 @@
 			$entrega->setPreco($post['preco']);
 			$entrega->setDataEntrega($post['data']);
 			$entrega->setDestinatario($post['destinatario']);
+			$entrega->setIdFuncionario($post['funcionario']);
 			return $entrega;
 		}
 		

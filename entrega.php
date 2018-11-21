@@ -38,7 +38,7 @@
 				<tr>
 					<th>Produto</th>
 					<th>Data da Entrega</th>
-					<th>Destinatário</th>
+					<th>Cliente</th>
 					<th>Entregador</th>
 					<th>Status</th>
 					<th class="actions">Ações</th>
@@ -53,7 +53,7 @@
 					<td><?=$entrega->getProduto()?></td>
 					<td><?=$entrega->getDataEntrega()?></td>
 					<td><?=$entrega->getDestinatario()?></td>
-					<td><?=$entrega->getEntregador()?></td>
+					<td><?=$entrega->getIdFuncionario()?></td>
 					<td><?=$entrega->getStatus()?></td>
 					<td class="actions">
 						<a class="btn btn-success btn-xs af" href="visualizaEntrega.php?id=<?=$entrega-> getIdEntrega()?>">Mais Info</a>
@@ -101,17 +101,28 @@
 						</div>
 
 						<div class="form-group">
-						    <label for="destinatario">Destinatário</label>
-						    <input name="destinatario" type="text" id="destinatario"  class="form-control" placeholder="" required>
+						  <label for="sel2">Cliente Para Entrega</label>
+						  <select name="cliente" class="form-control" id="sel2">
+						
+						  </select>
 						</div>
 
 						<div class="form-group">
-						  <label for="sel1">Funcionário Para Realizar Entrega</label>
-						  <select class="form-control" id="sel1">
-						    <option>1</option>
-						    <option>2</option>
-						    <option>3</option>
-						    <option>4</option>
+						  <label for="sel1">Funcionário Para Entrega</label>
+						  <select name="funcionario" class="form-control" id="sel1">
+						    <?php
+								include_once("dao/DaoFuncionario.class.php");
+							 	$daoFunc = new DaoFuncionario();
+
+								$vetorDeFuncionarios = $daoFunc->listarFuncionarios($_SESSION['codigo']);	
+								foreach ($vetorDeFuncionarios as $funcionario) {
+							?>
+							 
+							    <option value="<?=$funcionario->getIdFuncionario()?>"><?=$funcionario->getNome()?></option>
+
+							<?php 
+								}
+							?>
 						  </select>
 						</div>
 								

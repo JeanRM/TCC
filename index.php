@@ -20,6 +20,9 @@
 
   if ($_GET){
     $mensagem=$_GET["msg"];
+  }else{
+    $mensagem="";
+
   }
 
 ?>
@@ -37,7 +40,7 @@
   <body id="page-top">
     <div class="col-sm-12">
       <!-- BOTÃO CADASTRE-SE -->
-      <button type="button" class="btn btn-info float-right btn-cadastro cadastre-se" data-toggle="modal" data-target=".cadastre">Cadastre-se</button>
+      <button type="button" class="btn btn-info float-right btn-cadastro cadastre-se" data-toggle="modal" data-target=".cadastre">Cadastrar Empresa</button>
       </div>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
@@ -51,6 +54,9 @@
           <ul class="navbar-nav text-uppercase ml-auto">
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#services">Sobre nós</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#tutorial">Como Funciona</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#team">Equipe</a>
@@ -81,15 +87,16 @@
 					
 					<div class="form-group">
 						<label class="Meu-Label" for="Senha"> Senha </label>
-						<input type="password" name="senha" id="Senha" placeholder="Digite a sua Senha" class="form-control Meu-Input" required/>
+						<input type="password" name="senha" id="Senha" placeholder="Digite a sua Senha" class="form-control Meu-Input" required/><?php'msg'?>
 					</div >
+            <p>
+             <?=$mensagem?>
+            </p>
 
-					<p>
-	
-					</p>
-
-					<input class="btn btn-info float-left" type="submit" name="btn-logar-empresa" id="btn-logar" value="Área Empresarial" >
-					<input class="btn btn-success float-right" type="submit" name="btn-logar-funcionario" id="btn-logar" value="Funcionario" >
+          <input class="btn btn-info" type="submit" name="btn-logar-empresa" id="btn-logar" value="Área Empresarial" >
+          <input class="btn btn-success old" type="submit" name="btn-logar-funcionario" id="btn-logar" value="Funcionario" >
+				
+				
 
 				</div>
 			</form>
@@ -138,7 +145,94 @@
       </div>
     </section>
 
-  
+  <section id="tutorial">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">Como funciona nossa plataforma</h2>
+            <h3 class="section-subheading text-muted">Ela é dividida em três áreas, sendo elas: empresa, funcionário e cliente.    A empresa, é responsável por se cadastrar no sistema assim como deve cadastrar seus funcionários e clientes. O funcionário é responsável por realizar as entregas e o cliente pode rastrear seu produto com o código recebido via sms. </h3>
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <ul class="timeline">
+              <li>
+                <div class="timeline-image">
+                  <img class="rounded-circle img-fluid" src="img/about/1.jpg" alt="">
+                </div>
+                <div class="timeline-panel">
+                  <div class="timeline-heading">
+                    <h4>1° Passo </h4>
+                    <h4 class="subheading">Cadastrar Empresa</h4>
+                  </div>
+                  <div class="timeline-body">
+                    <p class="text-muted">A empresa se cadastra com seus dados e acessa a plataforma.</p>
+                  </div>
+                </div>
+              </li>
+              <li class="timeline-inverted">
+                <div class="timeline-image">
+                  <img class="rounded-circle img-fluid" src="img/about/2.jpg" alt="">
+                </div>
+                <div class="timeline-panel">
+                  <div class="timeline-heading">
+                    <h4>2° Passo</h4>
+                    <h4 class="subheading">Cadastrar Funcionario</h4>
+                  </div>
+                  <div class="timeline-body">
+                    <p class="text-muted">No menu funcionário, a empresa cadastra os funcionários responsáveis por realizar as entregas. (uma mensagem via sms irá ser enviada para ele, informando seu login e senha para acessar à plataforma). </p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="timeline-image">
+                  <img class="rounded-circle img-fluid" src="img/about/3.jpg" alt="">
+                </div>
+                <div class="timeline-panel">
+                  <div class="timeline-heading">
+                    <h4>3° Passo</h4>
+                    <h4 class="subheading">Cadastrar Cliente</h4>
+                  </div>
+                  <div class="timeline-body">
+                    <p class="text-muted">No menu cliente, a empresa cadastra seus clientes no qual irá ser entregue o produto.</p>
+                  </div>
+                </div>
+              </li>
+              <li class="timeline-inverted">
+                <div class="timeline-image">
+                  <img class="rounded-circle img-fluid" src="img/about/4.jpg" alt="">
+                </div>
+                <div class="timeline-panel">
+                  <div class="timeline-heading">
+                    <h4>4° Passo</h4>
+                    <h4 class="subheading">Cadastrar Entrega</h4>
+                  </div>
+                  <div class="timeline-body">
+                    <p class="text-muted">No menu Entrega, a empresa cadastra suas entregas informando o funcionário que vai entregar e o cliente que vai receber. (é nesse momento que um código aleatório via sms irá ser enviado para o cliente rastrear seu produto em tempo real).</p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="timeline-image">
+                  <img class="rounded-circle img-fluid" src="img/about/3.jpg" alt="">
+                </div>
+                <div class="timeline-panel">
+                  <div class="timeline-heading">
+                    <h4>5° Passo</h4>
+                    <h4 class="subheading">Finalizando Entrega</h4>
+                  </div>
+                  <div class="timeline-body">
+                    <p class="text-muted">Após entregar o produto, o funcionário deve finalizar a entrega na plataforma. (um relatório será realizado informando o tempo gasto, distância, combustível etc, podendo ser visualizado pela empresa a qualquer momento). </p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Team -->
     <section class="bg-light" id="team">
       <div class="container">
@@ -286,7 +380,7 @@
               <input type="text" class="form-control" placeholder="" aria-describedby="basic-addon1" name="cEndereco" required>
 
               <span class="input-group-addon" id="basic-addon1">Telefone</span>
-              <input type="number" class="form-control" placeholder="" aria-describedby="basic-addon1" name="cTelefone" required>
+              <input type="number" class="form-control" placeholder="" aria-describedby="basic-addon1" name="telefone" required>
             </div>
 
               

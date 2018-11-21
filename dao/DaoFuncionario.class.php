@@ -27,11 +27,10 @@
 			$sqlPreparado->bindValue(":idempresa",$id);
 			$resposta = $sqlPreparado->execute();
 			$lista = $sqlPreparado->fetchAll(PDO::FETCH_ASSOC);
-			// var_dump($lista);
 
 			$vetorDeObjetos = array();
 			foreach ($lista as $linha) {
-					$vetorDeObjetos [] = $this ->transformaFuncionarioDoBancoEmObjeto ($linha);
+					$vetorDeObjetos [] = $this ->transformaFuncionarioDoBancoEmObjeto($linha);
 			} 
 			
 			return $vetorDeObjetos;

@@ -1,6 +1,8 @@
  <?php
 	class Entrega{
 		private $idEntrega;
+		private $idEmpresa;
+		private $idFuncionario;
 		private $produto;
 		private $entregador;
 		private $dataEntrega;
@@ -17,6 +19,21 @@
 		public function setIdEntrega($idEntrega){
 			$this->idEntrega = $idEntrega;
 		}		
+
+		public function getIdEmpresa(){
+			return $this->idEmpresa;
+		}
+		public function setIdEmpresa($idEmpresa){
+			$this->idEmpresa = $idEmpresa;
+		}
+
+		public function getIdFuncionario(){
+			return $this->idFuncionario;
+		}
+		public function setIdFuncionario($idFuncionario){
+			$this->idFuncionario = $idFuncionario;
+		}		
+
 
 		public function getProduto(){
 			return $this->produto;
