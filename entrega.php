@@ -9,7 +9,7 @@
 	include_once("controller/EntregaController.class.php");	
 	$controle = new entregaController();
 	$id; 
-
+	$entrega = new Entrega;
 
 	if (isset($_POST["btn-cadastrar"])){		
 		$resposta = $controle->cadastrarEntrega($_POST);
@@ -56,8 +56,8 @@
 					<td><?=$entrega->getIdFuncionario()?></td>
 					<td><?=$entrega->getStatus()?></td>
 					<td class="actions">
-						<a class="btn btn-success btn-xs af" href="visualizaEntrega.php?id=<?=$entrega-> getIdEntrega()?>">Mais Info</a>
-						<a class="btn btn-warning btn-xs af" href="editaEntrega.php?id=<?=$entrega-> getIdEntrega()?>">Editar</a>
+						<a class="btn btn-success btn-xs af" href="visualizaEntrega.php?id=<?=$entrega->getIdEntrega()?>">Mais Info</a>
+						<a class="btn btn-warning btn-xs af" href="editaEntrega.php?id=<?=$entrega->getIdEntrega()?>">Editar</a>
 
 						<a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#delete-modal">Excluir</a>
 					</td>
@@ -151,7 +151,7 @@
         Deseja realmente excluir esta entrega do sistema?
       </div>
       <div class="modal-footer">
-        <a type="button"  class="btn btn-primary a" href="entrega.php?id=<?=$entrega-> getIdEntrega()?>">Sim</a>
+        <a type="button"  class="btn btn-primary a" href="entrega.php?id=<?=$entrega->getIdEntrega()?>">Sim</a>
  		<a type="button" class="btn btn-default a" data-dismiss="modal">N&atilde;o</a>
       </div>
     </div>

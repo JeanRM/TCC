@@ -10,7 +10,7 @@
 	$dao = new DaoFuncionario();	
 	
 	$id; 
-
+	$funcionario = new Funcionario;
 
 	if (isset($_POST["btn-cadastrar"])){		
 		$resposta = $controle -> cadastrarFuncionario($_POST);

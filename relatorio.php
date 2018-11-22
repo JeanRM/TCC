@@ -6,7 +6,7 @@
 ?>
 
 <head>
-	 <link href="datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <link rel="stylesheet" href="componentes/datatables/datatables.min.css" />
 	<link rel="stylesheet" href="css/relatorio.css">
 </head>
 
@@ -19,7 +19,7 @@
               Relatório de Entregas</div>
             <div class="card-body">
               <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered" id="tabela" width="100%" cellspacing="0">
                   <thead>
                     <tr>
                       <th>Produto</th>
@@ -58,12 +58,9 @@
 
         </div>
     </div>
-        <!-- /.container-fluid -->
-	<script src="componentes/jquery/jquery-3.2.1.min.js"></script>
-	<script src="componentes/bootstrap/js/bootstrap.min.js"></script>
-	 <!-- Page level plugin JavaScript-->
-    <script src="datatables/jquery.dataTables.js"></script>
-    <script src="datatables/dataTables.bootstrap4.js"></script>
-    <script src="datatables/datatables-demo.js"></script>
 </body>
+    <script src="componentes/jquery/jquery.js"></script>
+    <script src="componentes/Bootstrap/js/bootstrap.min.js" ></script>
+    <script src="componentes/datatables/datatables.min.js"></script>
+    <script src="js/main.js"></script>
 </html>

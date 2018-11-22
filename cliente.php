@@ -9,7 +9,8 @@
 	include_once("dao/DaoCliente.class.php");
 	$dao = new DaoCliente();	
 	
-	$id; 
+	$id;
+	$cliente = new Cliente;
 
 
 	if (isset($_POST["btn-cadastrar"])){		
