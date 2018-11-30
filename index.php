@@ -87,10 +87,17 @@
 					
 					<div class="form-group">
 						<label class="Meu-Label" for="Senha"> Senha </label>
-						<input type="password" name="senha" id="Senha" placeholder="Digite a sua Senha" class="form-control Meu-Input" required/><?php'msg'?>
+						<input type="password" name="senha" id="Senha" placeholder="Digite a sua Senha" class="form-control Meu-Input" required/>
 					</div >
             <p>
-             <?=$mensagem?>
+            
+              <?php
+                if(is_null($mensagem)){
+
+                }else{
+                  echo $mensagem;
+                }
+              ?>
             </p>
 
           <input class="btn btn-info" type="submit" name="btn-logar-empresa" id="btn-logar" value="Área Empresarial" >
@@ -123,7 +130,7 @@
               <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
             </span>
             <h4 class="service-heading">Econômico</h4>
-            <p class="text-muted">Nosso sistema foi desenvolvido sem fins lucrativos com o intuito de concluirmos nosso Trabalho de Conclusão de Curso do Curso Técnico em Informática da escola Waldemir Barros da Silva em Campo Grande (MS) e beneficiar empreendedores que atuam na área de entrega e transporte e seus clientes.</p>
+            <p class="text-muted">Nosso sistema foi desenvolvido sem fins lucrativos para beneficiar empreendedores que atuam na área de entrega e transporte e seus clientes.</p>
           </div>
           <div class="col-md-4">
             <span class="fa-stack fa-4x">
@@ -131,7 +138,7 @@
               <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
             </span>
             <h4 class="service-heading">Facil</h4>
-            <p class="text-muted">Nosso sistema foi desenvolvido para que qualquer usuário possa usufruir 100% dessa ferramenta, para isso, usamos designs intuitivos e dinâmicos em todo nosso site</p>
+            <p class="text-muted">Com designs intuitivos e dinâmicos em todo nosso site, temos como principio fazer com que qualquer usuário possa usufruir 100% de nossa plataforma</p>
           </div>
           <div class="col-md-4">
             <span class="fa-stack fa-4x">
@@ -139,7 +146,7 @@
               <i class="fas fa-truck-moving fa-stack-1x fa-inverse"></i>
             </span>
             <h4 class="service-heading">Veloz</h4>
-            <p class="text-muted">Nosso sistema é...</p>
+            <p class="text-muted">Buscamos as melhores rotas para as entregas evitando transtornos para a empresa e cliente. </p>
           </div>
         </div>
       </div>
@@ -159,7 +166,7 @@
             <ul class="timeline">
               <li>
                 <div class="timeline-image">
-                  <img class="rounded-circle img-fluid" src="img/about/1.jpg" alt="">
+                   <h4>1</h4>
                 </div>
                 <div class="timeline-panel">
                   <div class="timeline-heading">
@@ -376,8 +383,22 @@
               <span class="input-group-addon" id="basic-addon1">Cnpj</span>
               <input type="number" class="form-control" placeholder="" aria-describedby="basic-addon1" name="cCpf" required>
 
-              <span class="input-group-addon" id="basic-addon1">Endereco</span>
-              <input type="text" class="form-control" placeholder="" aria-describedby="basic-addon1" name="cEndereco" required>
+              <div class="row">
+                    <div class="col">
+                      <span class="input-group-addon" id="basic-addon1">Rua</span>
+                      <input type="text" name="rua" class="form-control" placeholder="Ex: Rua Palmacia ">
+                    </div>
+
+                    <div class="col col-md-2">
+                      <span class="input-group-addon" id="basic-addon1">N°</span>
+                      <input type="number" name="numero" class="form-control" placeholder="Ex: 300">
+                    </div>
+
+                    <div class="col-md-4">
+                      <span class="input-group-addon" id="basic-addon1">Bairro</span>
+                      <input type="text" name="bairro" class="form-control" placeholder="Ex: Moreninha 2">
+                    </div>
+                  </div>
 
               <span class="input-group-addon" id="basic-addon1">Telefone</span>
               <input type="number" class="form-control" placeholder="" aria-describedby="basic-addon1" name="telefone" required>

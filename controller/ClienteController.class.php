@@ -7,7 +7,16 @@
 			$dao = new DaoCliente();
 			$cliente = $this->formularioDeCadastroParaObjeto($dadosDoFormulario);
 			$resposta = $dao->cadastrarCliente($cliente);
-			return $resposta;
+
+			if($resposta > 0){
+					 ?>
+					<script> alert("Cadastro Realizado com Sucesso!"); </script>
+					<?php
+			}else{
+					?>
+					<script> alert("Não foi Possível se Cadastrar. Tente Novamente!"); </script>
+					<?php
+			}
 		}
 
 		public function excluir($idcliente){
@@ -22,7 +31,7 @@
 
 
 
-
+ 
 
 
 

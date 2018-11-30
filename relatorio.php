@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html  lang="pt-br">	
+<html  lang="pt-br">  
 
 <?php
- 	include_once("includes/menu.php");
+  include_once("includes/menu.php");
+  include_once ("dao/daoRelatorio.class.php");
+  $dao = new DaoRelatorio;
 ?>
 
 <head>
   <link rel="stylesheet" href="componentes/datatables/datatables.min.css" />
-	<link rel="stylesheet" href="css/relatorio.css">
+  <link rel="stylesheet" href="css/relatorio.css">
 </head>
 
 <body>
-	<div id="container ">
-		<div id="tabela-centro">
+  <div id="container ">
+    <div id="tabela-centro">
           <div class="card mb-3 teste2">
             <div class="card-header">
               <i class="fas fa-table"></i>
@@ -41,14 +43,22 @@
                     </tr>
                   </tfoot>
                   <tbody>
+                    <?php
+                      $vetorDeRelatorios = $dao->listarRelatorios($_SESSION['codigo']); 
+                      foreach ($vetorDeRelatorios as $relatorio) {
+                    ?>
+
                     <tr>
-                      <td>Tiger Nixon</td>
-                      <td>System Architect</td>
-                      <td>Edinburgh</td>
-                      <td>61</td>
-                      <td>2011/04/25</td>
-                      <td>$320,800</td>
+                      <td><?=$relatorio->getProduto()?></td>
+                      <td><?=$relatorio->getIdFuncionario()?></td>
+                      <td><?=$relatorio->getIdCliente()?></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
                     </tr>
+                    <?php
+                      }
+                    ?>
                   </tbody>
                 </table>
               </div>

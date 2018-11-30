@@ -1,4 +1,4 @@
-<?php
+ <?php
 	include_once("dao/DaoFuncionario.class.php");
 
 	class FuncionarioController{
@@ -6,10 +6,22 @@
 			$dao = new DaoFuncionario();
 			$funcionario = $this->formularioDeCadastroParaFuncionario($dadosDoFormulario);
 			$resposta= $dao->cadastrarFuncionarioNoBd($funcionario);
-			return $resposta;
+			
+			if($resposta > 0){
+					 ?>
+					<script> alert("Cadastro Realizado com Sucesso!"); </script>
+
+					
+					<?php
+			}else{
+					?>
+					<script> alert("Não foi Possível se Cadastrar. Tente Novamente!"); </script>
+					<?php
+			}
+		}
 			
 
-		}
+		
 
 		public function formularioDeCadastroParaFuncionario($dadosDoFormulario){
 			$funcionario = new Funcionario();

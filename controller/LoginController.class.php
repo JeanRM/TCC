@@ -57,14 +57,15 @@
 				$usuario = $this->formularioDeCadastroParaUsuario($dadosDoFormulario);
 				$resposta = $dao->salvarEmpresaNoBanco($usuario);
 				if($resposta > 0){
-					 echo "Salvou";
+					
 				}else{
-					 echo "Não Salvou";
+					
 				}
 			
 			}else{
-				echo "Usuario Já existente";
+				
 			}
+			
 			
 		}
 

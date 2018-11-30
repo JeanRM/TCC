@@ -1,6 +1,6 @@
 <?php
 	include_once("includes/Conexao.class.php");	
-	include_once("model/Entrega.class.php");	
+	include_once("model/Cliente.class.php");	
 	class DaoCliente{
 		public function cadastrarCliente($cliente){
 			$id_empresa;
@@ -22,6 +22,8 @@
 
 		public function listarClientes($id){
 			$sql = "SELECT * FROM tb_empresa e INNER JOIN tb_cliente f ON (e.id_empresa=f.id_empresa) where e.id_empresa = :idempresa";
+
+
 			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
 			$sqlPreparado->bindValue(":idempresa",$id);
 			$resposta = $sqlPreparado->execute();

@@ -1,13 +1,22 @@
  <?php
 	include_once("dao/DaoEntrega.class.php");	
 	
-
+ 
 	class entregaController{
 		public function cadastrarEntrega($post){
 			$dao = new DaoEntrega();
 			$entrega = $this->formularioDeCadastroParaEntrega($post);
 			$resposta= $dao->cadastrarEntrega($entrega); 
-			return $resposta;
+
+			if($resposta > 0){
+					 ?>
+					<script> alert("Cadastro Realizado com Sucesso!"); </script>
+					<?php
+			}else{
+					?>
+					<script> alert("Não foi Possível se Cadastrar. Tente Novamente!"); </script>
+					<?php
+			}
 
 		}
 		public function listarEntrega(){
@@ -44,9 +53,10 @@
 			$entrega->setDescricao($post['descricao']);
 			$entrega->setPreco($post['preco']);
 			$entrega->setDataEntrega($post['data']);
-			$entrega->setDestinatario($post['destinatario']);
-			$entrega->setIdFuncionario($post['funcionario']);
+			$entrega->setIdFuncionario($post['id_funcionario']);
+			$entrega->setIdCliente($post['id_cliente']);
 			return $entrega;
+
 		}
 		
 	}

@@ -46,22 +46,12 @@
 			        </a>
 			    </li>
 				
-				
 				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-			        <a class="nav-link" href="entrega.php">
-			            <i class="fas fa-truck"></i>
-			            <span class="nav-link-text">Entregas</span>
-			        </a>
-			    </li>
-
-
-			    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
 			        <a class="nav-link" href="funcionario.php">
 			        	<i class="fas fa-address-card"></i>
 			        	<span class="nav-link-text">Funcionário</span>
 			        </a>
 			    </li>
-
 
 			    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
 			        <a class="nav-link" href="cliente.php">
@@ -70,10 +60,25 @@
 			        </a>
 			    </li>
 
+			    
+				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+			        <a class="nav-link" href="entrega.php">
+			            <i class="fas fa-truck"></i>
+			            <span class="nav-link-text">Entregas</span>
+			        </a>
+			    </li>
+
 			    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-			        <a class="nav-link" href="relatorio.php">
+			        <a class="nav-link" onclick="emConstrucao()" href="#">
 			            <i class="fas fa-chart-bar"></i>
 			            <span class="nav-link-text">Relatórios</span>
+			        </a>
+			    </li>
+
+			    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+			        <a class="nav-link" onclick="emConstrucao()" href="#">
+			            <i class="far fa-user-circle"></i>
+			            <span class="nav-link-text">Minha Conta</span>
 			        </a>
 			    </li>
 
@@ -90,3 +95,9 @@
 
 	
 </body>
+<script type="text/javascript">
+	function emConstrucao()
+		{
+		    alert("Pagina ainda em Desenvolvimento!");
+		}
+</script>

@@ -1,10 +1,12 @@
- <?php
+ <?php 
 	class Entrega{
 		private $idEntrega;
 		private $idEmpresa;
 		private $idFuncionario;
+		private $idCliente;
 		private $produto;
 		private $entregador;
+		private $cliente;
 		private $dataEntrega;
 		private $status;
 		private $descricao;
@@ -18,7 +20,8 @@
 		}
 		public function setIdEntrega($idEntrega){
 			$this->idEntrega = $idEntrega;
-		}		
+		}	
+		
 
 		public function getIdEmpresa(){
 			return $this->idEmpresa;
@@ -32,7 +35,14 @@
 		}
 		public function setIdFuncionario($idFuncionario){
 			$this->idFuncionario = $idFuncionario;
-		}		
+		}
+
+		public function getIdCliente(){
+			return $this->idCliente;
+		}
+		public function setIdCliente($idCliente){
+			$this->idCliente = $idCliente;
+		}	
 
 
 		public function getProduto(){
@@ -48,6 +58,13 @@
 		}
 		public function setEntregador($entregador){
 			$this->entregador = $entregador;
+		}
+
+		public function getCliente(){
+			return $this->cliente;
+		}
+		public function setCliente($cliente){
+			$this->cliente = $cliente;
 		}
 
 

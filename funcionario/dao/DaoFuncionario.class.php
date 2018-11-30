@@ -1,13 +1,21 @@
- <?php
+<?php
 	include_once("includes/Conexao.class.php");
 	include_once ("model/Funcionario.class.php");	
 
 	class DaoFuncionario{
 		public function listarEntregas($id){
-			$sql = "select * from tb_entrega e INNER JOIN tb_funcionario f ON (e.id_funcionario=f.id_funcionario) where e.id_empresa = :idempresa";
+			$sql = "SELECT id_entrega, en.id_empresa, en.id_funcionario, en.id_cliente,  produto, data_entrega, preco,     f.nome_funcionario AS entregador, cl.nome_cliente AS cliente, cl.Rua AS Rua, cl.Numero AS Numero, cl.Bairro AS Bairro FROM tb_entrega en 
+			INNER JOIN tb_empresa em ON (en.id_empresa=em.id_empresa) 
+			INNER JOIN tb_funcionario f ON (en.id_funcionario=f.id_funcionario) 
+			INNER JOIN tb_cliente cl ON (en.id_cliente=cl.id_cliente) 
+			
+
+			WHERE f.id_funcionario = :idfuncionario";
+
+		//	$sql = "SELECT id_entrega, en.id_empresa, en.id_funcionario, en.id_cliente,  produto, data_entrega, preco,     f.nome_funcionario AS entregador, cl.nome_cliente AS cliente  FROM tb_entrega en INNER JOIN tb_empresa em ON (en.id_empresa=em.id_empresa) 			INNER JOIN tb_funcionario f ON (en.id_funcionario=f.id_funcionario) 			INNER JOIN tb_cliente cl ON (en.id_cliente=cl.id_cliente) 			WHERE en.id_empresa = :idempresa";
 			
 			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
-			$sqlPreparado->bindValue(":idempresa",$id);
+			$sqlPreparado->bindValue(":idfuncionario",$id);
 			$resposta = $sqlPreparado->execute();
 			$lista = $sqlPreparado->fetchAll(PDO::FETCH_ASSOC);
 
@@ -23,15 +31,17 @@
 		public function transformaEntregaDoBancoEmObjeto($dadosDoBanco){
 			$funcionario = new Funcionario();
 			$funcionario->setIdEntrega($dadosDoBanco['id_entrega']);
-			$funcionario->setIdEntrega($dadosDoBanco['id_funcionario']);
+			$funcionario->setIdEmpresa($dadosDoBanco['id_empresa']);
+			$funcionario->setIdFuncionario($dadosDoBanco['id_funcionario']);
 			$funcionario->setProduto($dadosDoBanco['produto']);
-			$funcionario->setNome($dadosDoBanco['entregador']);
-			$funcionario->setLogin($dadosDoBanco['data_entrega']);
-			$funcionario->setSenha($dadosDoBanco['status']);
-			$funcionario->setEmail($dadosDoBanco['destinatario']);
-			$funcionario->setEmail($dadosDoBanco['preco']);
+			$funcionario->setEntregador($dadosDoBanco['entregador']);
+			$funcionario->setCliente($dadosDoBanco['cliente']);
+			$funcionario->setDataEntrega($dadosDoBanco['data_entrega']);
+			$funcionario->setPreco($dadosDoBanco['preco']);
+			$funcionario->setRua($dadosDoBanco['Rua']);
+			$funcionario->setNumero($dadosDoBanco['Numero']);
+			$funcionario->setBairro($dadosDoBanco['Bairro']);
 			return $funcionario;
-
 		}		
 	}
 ?>

@@ -7,6 +7,9 @@
 		private $cnpj; 
 		private $email; 
 		private $telefone;  
+		private $rua;
+		private $numero;
+		private $bairro;
 
 		public function getIdEmpresa(){
 			return $this->idEmpresa;
@@ -66,6 +69,27 @@
 		public function setEmail($email){
 			$this->email = $email;
 		}
+
+		public function getRua(){
+			return $this->rua;
+		}
+		public function setRua($rua){
+			$this->rua = $rua;
+		}
+
+		public function getNumero(){
+			return $this->numero;
+		}
+		public function setNumero($numero){
+			$this->numero = $numero;
+		}
+
+		public function getBairro(){
+			return $this->bairro;
+		}
+		public function setBairro($bairro){
+			$this->bairro = $bairro;
+		}	
 
 	}
 ?>

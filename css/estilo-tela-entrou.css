@@ -1,7 +1,13 @@
-  body{
-	    background-image:url('../imagem/fundo.jpg');
-		background-size:Cover;
-    }                     
+html, body{
+	height:100%;
+}
+body{
+    background-image:url('../imagem/fundo.jpg');
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-attachment: fixed;
+	background-position:center;
+}                     
 
 h1{
     text-align:center;
@@ -19,6 +25,7 @@ header {
    left:0px;
    background-color:rgb(55,203,255);
    position:fixed;
+   z-index:100;
 	
 }
 .menu-icon {
@@ -35,6 +42,7 @@ header {
 	transition: all 0.4s;
 	left:6px;
 	top:0px;
+	z-index:100!important;
 	
 }
 .menu-icon:hover{
@@ -64,6 +72,7 @@ header {
 	top:0;
 	overflow: hidden;
 	transition: all .4s;
+	z-index:100!important;
 	
 }
 

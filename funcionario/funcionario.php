@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt">
   <?php
-    include_once("controller/FuncionarioController.class.php");
+    include_once("dao/DaoFuncionario.class.php");
     $dao = new DaoFuncionario;
 
-    include_once("dao/DaoFuncionario.class.php");
+
+    include_once("controller/FuncionarioController.class.php");
+    $controller = new FuncionarioController;
+
     session_start();
     $teste = $_SESSION['codigo'];
   ?>
@@ -61,40 +64,36 @@
           <div class="col-lg-12 text-center">
             <h2 class="section-heading text-uppercase">Entregas a serem realizadas</h2>
         <div id="centro">
-		<table class="table table-striped teste" cellspacing="0" cellpadding="0">
-			<thead>
-				<tr>
-					<th>Produto</th>
-					<th>Data da Entrega</th>
-					<th>Cliente</th>
-					<th>Endereço</th>
-					<th>Status</th>
-					<th class="actions">Ações</th>
-				</tr>
-			</thead>
-			<tbody>
-		    <?php
-          $vetorDeEntregas = $dao->listarEntregas($teste); 
+		<table class="table table-striped" cellspacing="0" cellpadding="0">
+      <thead>
+        <tr>
+          <th>Produto</th>
+          <th>Cliente</th>
+          <th>Endereco</th>
+          <th>Data da Entrega</th>
+          <th class="actions">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+          $vetorDeEntregas = $dao->listarEntregas($_SESSION['codigo']); 
           foreach ($vetorDeEntregas as $entrega) {
-          $a = $entrega->getProduto();
         ?>
-  				<tr>
-  					<td class="black"><?=$entrega->getProduto()?></td>
-  					<td class="black"><?=$entrega->getIdEntrega()?></td>
-  					<td class="black">Igorzeti</td>
-  					<td class="black">sadasdaskdaslkdmaskdm</td>
-  					<td></td>
-  					<td class="actions">
-  						<a class="btn btn-success btn-xs af" href="visualizaEntrega.php">Iniciar Entrega</a>
-  					</td>
-  				</tr>
+        <tr>
+          <td><?=$entrega->getProduto()?></td>
+          <td><?=$entrega->getCliente()?></td>
+          <td><?=$entrega->getRua()?>, <?=$entrega->getNumero()?> - <?=$entrega->getBairro()?></td>
+          <td><?=$entrega->getDataEntrega()?></td>
+          <td class="actions">
+            <a href="#" class="btn btn-success btn-xs" data-toggle="modal" data-target="#confirmar-modal">Iniciar Entrega</a>
+          </td>
+        </tr>
+
         <?php
           }
-          ?>
-        
-
-			</tbody>
-		</table>
+        ?>
+      </tbody>
+    </table>
 	</div>
       </div>
     </section>
@@ -136,12 +135,12 @@
                   </tfoot>
                   <tbody>
                     <tr>
-                      <td>Tiger Nixon</td>
-                      <td>System Architect</td>
-                      <td>Edinburgh</td>
-                      <td>61</td>
-                      <td>2011/04/25</td>
-                      <td>$320,800</td>
+                      <td>Pizza Calabresa</td>
+                      <td>João</td>
+                      <td>Thiago</td>
+                      <td></td>
+                      <td>2018/11/28</td>
+                      <td>$25,00</td>
                     </tr>
                   </tbody>
                 </table>
@@ -156,7 +155,23 @@
 
 
 
-
+  <!-- Modal de Confirmação-->
+  <div class="modal fade" id="confirmar-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="modalLabel">Atenção!</h4>
+        </div>
+        <div class="modal-body">
+          Deseja Iniciar Esta Entrega?
+        </div>
+        <div class="modal-footer">
+          <a type="button"  class="btn btn-primary a" href="entrega.php?<?=$entrega->getIdEntrega()?>">Sim</a>
+      <a type="button" class="btn btn-default a" data-dismiss="modal">N&atilde;o</a>
+        </div>
+      </div>
+    </div>
+  </div> 
     <!-- Bootstrap core JavaScript -->
     <script src="../componentes/jquery/jquery.min.js"></script>
     <script src="../componentes/bootstrap/js/bootstrap.bundle.min.js"></script>

@@ -25,7 +25,7 @@
 ?>
 
 <head>
-
+	<link rel="stylesheet" href="componentes/datatables/datatables.min.css" />
 	<link rel="stylesheet" href="css/funcionario.css">
 </head>
 
@@ -33,94 +33,97 @@
 	<button type="button" class="btn btn-success float-right btn-cadastro" data-toggle="modal" data-target=".cadastre">Cadastrar Cliente</button>
 
 
+	<div id="container">
+		<div id="centro">
+			<div class="card-body">
+				<table class="table table-striped" id="tabela" cellspacing="0" cellpadding="0">
+					<thead>
+						<tr>
+							<th>Nome</th>
+							<th>Endereco</th>
+							<th>Telefone</th>
+							<th>Email</th>
+							<th class="actions">Ações</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php
+							$vetorDeClientes = $dao->listarClientes($_SESSION['codigo']);	
+							foreach ($vetorDeClientes as $cliente) {
+						?>
+						<tr>
+							<td><?=$cliente->getNome()?></td>
+							<td><?=$cliente->getRua()?>, <?=$cliente->getNumero()?> - Bairro <?=$cliente->getBairro()?></td>
+							<td><?=$cliente->getTelefone()?></td>
+							<td><?=$cliente->getEmail()?></td>
+							<td class="actions">
+								<a class="btn btn-success btn-xs af" onclick="emConstrucao()" href="#">Mais Info</a>
+								<a class="btn btn-warning btn-xs af"  onclick="emConstrucao()" href="#">Editar</a>
 
-	<div id="centro">
-		<table class="table table-striped" cellspacing="0" cellpadding="0">
-			<thead>
-				<tr>
-					<th>Nome</th>
-					<th>Endereco</th>
-					<th>Telefone</th>
-					<th>Email</th>
-					<th class="actions">Ações</th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php
-					$vetorDeClientes = $dao->listarClientes($_SESSION['codigo']);	
-					foreach ($vetorDeClientes as $cliente) {
-				?>
-				<tr>
-					<td><?=$cliente->getNome()?></td>
-					<td><?=$cliente->getRua()?>, <?=$cliente->getNumero()?> - Bairro <?=$cliente->getBairro()?></td>
-					<td><?=$cliente->getTelefone()?></td>
-					<td><?=$cliente->getEmail()?></td>
-					<td class="actions">
-						<a class="btn btn-success btn-xs af" href="visualizaCliente.php?id=<?=$cliente->getIdCliente()?>">Mais Info</a>
-						<a class="btn btn-warning btn-xs af" href="editaCliente.php?id=<?=$cliente->getIdCliente()?>">Editar</a>
+								<a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#delete-modal">Excluir</a>
+							</td>
+						</tr>
 
-						<a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#delete-modal">Excluir</a>
-					</td>
-				</tr>
-
-				<?php
-					}
-				?>
-			</tbody>
-		</table>
+						<?php
+							}
+						?>
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</div>
 
 
 
 
-		<!-- MODAL DE CADASTRO -->
-		<div class="modal fade cadastre" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-		 	<div class="modal-dialog modal-lg">
-		    	<div class="modal-content">
-					<div class="modal-body">
-						<form method="POST">
-							<div id="cadastro-funcionario">
-							 	<span class="input-group-addon" id="basic-addon1">Nome</span>
-								<input type="text" class="form-control" placeholder="Nome Cliente" aria-describedby="basic-addon1" name="nome" required>
+	<!-- MODAL DE CADASTRO -->
+	<div class="modal fade cadastre" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	 	<div class="modal-dialog modal-lg">
+	    	<div class="modal-content">
+				<div class="modal-body">
+					<form method="POST">
+						<div id="cadastro-funcionario">
+						 	<span class="input-group-addon" id="basic-addon1">Nome</span>
+							<input type="text" class="form-control" placeholder="Nome Cliente" aria-describedby="basic-addon1" name="nome" required>
 
-								  <div class="row">
-								    <div class="col">
-								      <span class="input-group-addon" id="basic-addon1">Rua</span>
-								      <input type="text" name="rua" class="form-control" placeholder="Ex: Rua Palmacia ">
-								    </div>
+							  <div class="row">
+							    <div class="col">
+							      <span class="input-group-addon" id="basic-addon1">Rua</span>
+							      <input type="text" name="rua" class="form-control" placeholder="Ex: Rua Palmacia ">
+							    </div>
 
-								    <div class="col col-md-2">
-								    	<span class="input-group-addon" id="basic-addon1">N°</span>
-								      <input type="number" name="numero" class="form-control" placeholder="Ex: 300">
-								    </div>
+							    <div class="col col-md-2">
+							    	<span class="input-group-addon" id="basic-addon1">N°</span>
+							      <input type="number" name="numero" class="form-control" placeholder="Ex: 300">
+							    </div>
 
-								    <div class="col-md-4">
-								    	<span class="input-group-addon" id="basic-addon1">Bairro</span>
-								      <input type="text" name="bairro" class="form-control" placeholder="Ex: Moreninha 2">
-								    </div>
-								  </div>
+							    <div class="col-md-4">
+							    	<span class="input-group-addon" id="basic-addon1">Bairro</span>
+							      <input type="text" name="bairro" class="form-control" placeholder="Ex: Moreninha 2">
+							    </div>
+							  </div>
 
-								<span class="input-group-addon" id="basic-addon1">CPF</span>
-								<input type="text" class="form-control" maxlength="14" placeholder="Cpf Cliente" aria-describedby="basic-addon1" name="cpf" required>
+							<span class="input-group-addon" id="basic-addon1">CPF</span>
+							<input type="text" class="form-control" maxlength="14" placeholder="Cpf Cliente" aria-describedby="basic-addon1" name="cpf" required>
 
-								<span class="input-group-addon" id="basic-addon1">Telefone</span>
-								<input type="number" class="form-control" maxlength="12" placeholder="Telefone Cliente" aria-describedby="basic-addon1" name="telefone" required>
+							<span class="input-group-addon" id="basic-addon1">Telefone</span>
+							<input type="number" class="form-control" maxlength="12" placeholder="Telefone Cliente" aria-describedby="basic-addon1" name="telefone" required>
 
 
-								<span class="input-group-addon" id="basic-addon1">Email</span>
-								<input type="email" class="form-control" placeholder="Email Cliente" aria-describedby="basic-addon1" name="email" required>	
-								
-							</div>
-						
-					</div>						
-					<div class="modal-footer">
-						<button type="submit" name="btn-cadastrar" class="btn btn-primary">Cadastrar</button>
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-					</div>
-					</form>
+							<span class="input-group-addon" id="basic-addon1">Email</span>
+							<input type="email" class="form-control" placeholder="Email Cliente" aria-describedby="basic-addon1" name="email" required>	
+							
+						</div>
+					
+				</div>						
+				<div class="modal-footer">
+					<button type="submit" name="btn-cadastrar" class="btn btn-primary">Cadastrar</button>
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
 				</div>
-		    </div>
-		</div>
+				</form>
+			</div>
+	    </div>
+	</div>
 
 	<!-- Modal de exclusao-->
 	<div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
@@ -140,9 +143,6 @@
 	  	</div>
 	</div>
 
-	<script src="componentes/jquery/jquery-3.2.1.min.js"></script>
-	<script src="componentes/bootstrap/js/bootstrap.min.js"></script>
-
 	<script>
 		function formatar(mascara, documento){
 		  var i = documento.value.length;
@@ -154,7 +154,16 @@
 		  }
 		  
 		}
-</script>
+
+      function emConstrucao(){
+        alert("Pagina ainda em Desenvolvimento!");
+      }
+	</script>
+	<script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script> 
+	<script src="componentes/jquery/jquery.js"></script>
+    <script src="componentes/Bootstrap/js/bootstrap.min.js" ></script>
+    <script src="componentes/datatables/datatables.min.js"></script>
+    <script src="js/main.js"></script>
 
 </body>
 </html>

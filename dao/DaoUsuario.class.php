@@ -1,4 +1,4 @@
-  <?php 
+<?php 
 	include_once ("model/Usuario.class.php");
 	include_once("includes/Conexao.class.php");
 	
@@ -23,7 +23,7 @@
 			
 		}
 		public function salvarEmpresaNoBanco($usuario){
-			$sql = "INSERT INTO tb_empresa (id_empresa, nome_empresa, login_empresa, senha_empresa, cnpj_empresa, telefone_empresa, email_empresa) VALUES ('', :nome, :login, :senha, :cpf, :telefone, :email)";
+			$sql = "INSERT INTO tb_empresa (id_empresa, nome_empresa, login_empresa, senha_empresa, cnpj_empresa, telefone_empresa, email_empresa, Rua, Numero, Bairro) VALUES ('', :nome, :login, :senha, :cpf, :telefone, :email, :rua, :numero, :bairro)";
 			$sqlPreparado = Conexao::meDeAConexao()->prepare($sql);
 			$sqlPreparado->bindValue(":nome",$usuario->getNome());
 			$sqlPreparado->bindValue(":login",$usuario->getLogin());
@@ -31,6 +31,9 @@
 			$sqlPreparado->bindValue(":cpf",$usuario->getCnpj());
 			$sqlPreparado->bindValue(":telefone",$usuario->getTelefone());
 			$sqlPreparado->bindValue(":email",$usuario->getEmail());
+			$sqlPreparado->bindValue(":rua",$usuario->getRua());	
+			$sqlPreparado->bindValue(":numero",$usuario->getNumero());
+			$sqlPreparado->bindValue(":bairro",$usuario->getBairro());
 			$sqlPreparado->execute();
 			
 			return $sqlPreparado->rowCount();
