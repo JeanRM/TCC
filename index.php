@@ -368,8 +368,8 @@
 
             <form method="POST">
           <div class="corpo-modal cadastre ">           
-              <span class="input-group-addon" id="basic-addon1">Nome</span>
-              <input type="text" class="form-control" placeholder="Nome Empresa" aria-describedby="basic-addon1" name="cnome" required>
+              <span class="input-group-addon" id="basic-addon1">Nome Da Empresa</span>
+              <input type="text" class="form-control" placeholder="Nome" aria-describedby="basic-addon1" name="cnome" required>
 
               <span class="input-group-addon" id="basic-addon1">Login</span>
               <input type="text" class="form-control" placeholder="Ex: Velozmente01" aria-describedby="basic-addon1" name="clogin" required>

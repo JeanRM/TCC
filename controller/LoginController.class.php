@@ -57,8 +57,15 @@
 				$usuario = $this->formularioDeCadastroParaUsuario($dadosDoFormulario);
 				$resposta = $dao->salvarEmpresaNoBanco($usuario);
 				if($resposta > 0){
+
+				?>
+					<script> alert("Cadastro Realizado Com Sucesso!")</script>
+				<?php
 					
 				}else{
+				?>
+					<script> alert("Erro! Não foi Possível se Cadastrar")</script>
+				<?php
 					
 				}
 			
@@ -77,6 +84,9 @@
 			$usuario->setCnpj($dadosDoFormulario['cCpf']);
 			$usuario->setTelefone($dadosDoFormulario['telefone']);
 			$usuario->setEmail($dadosDoFormulario['cemail']);
+			$usuario->setRua($dadosDoFormulario['rua']);
+			$usuario->setNumero($dadosDoFormulario['numero']);
+			$usuario->setBairro($dadosDoFormulario['bairro']);
 			return $usuario;
 		}
 

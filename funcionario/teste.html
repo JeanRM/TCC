@@ -1,24 +1,24 @@
-<!DOCTYPE html>
-<html>
+﻿<!DOCTYPE html >
   <head>
-    <title>Velozmente</title>
-    <meta name="viewport" content="initial-scale=1.0">
-    <link href="../componentes/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/entrega.css" rel="stylesheet">
-    <meta charset="utf-8">
-
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="css/entrega.css">
+<link href="../componentes/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../../componentes/Bootstrap/css/bootstrap.css">
+    <title>Using MySQL and PHP with Google Maps</title>
+    <style>
+      dding: 0;
+      }
+    </style>
   </head>
+
   <body>
- 
+	<div class="centro">
 
-    <div class="centro">
-    	<div id="map"></div>
-    </div>
-
-
-
-
-
+		<div id="map">
+	
+		</div>
+	</div>
 
     <script>
       var customLabel = {
@@ -31,9 +31,9 @@
       };
 
         function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-          center: new google.maps.LatLng(-20.549056, -54.577000),
-          zoom: 12
+        	var map = new google.maps.Map(document.getElementById('map'), {
+          	center: new google.maps.LatLng(-20.549070, -54.576204),
+          	zoom: 12
         });
         var infoWindow = new google.maps.InfoWindow;
 
@@ -96,5 +96,20 @@
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5fYdwyCfu7KKJ8XNyYcr1QHa9S0zYEGk&callback=initMap">
     </script>
-  </body>
+
+    <header class="masthead">
+          <div class="container">
+            <div class="intro-text">
+                <div class="form-centralizado">
+                   <div class="form-group">
+			<label for="dinheiro">Distância</label>
+			<input name="preco" type="float" id="dinheiro"  class="dinheiro form-control"  placeholder="1km" required>
+		   </div>
+		</div>
+	    </div>
+	  <div>
+
+          
+
+</body>
 </html>

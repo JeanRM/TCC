@@ -135,12 +135,12 @@
                   </tfoot>
                   <tbody>
                     <tr>
-                      <td>Pizza Calabresa</td>
-                      <td>João</td>
-                      <td>Thiago</td>
-                      <td></td>
-                      <td>2018/11/28</td>
-                      <td>$25,00</td>
+                      <td>Em Desenvolvimento</td>
+                      <td>Em Desenvolvimento</td>
+                      <td>Em Desenvolvimento</td>
+                      <td>Em Desenvolvimento</td>
+                      <td>Em Desenvolvimento</td>
+                      <td>Em Desenvolvimento</td>
                     </tr>
                   </tbody>
                 </table>

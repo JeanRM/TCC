@@ -60,7 +60,7 @@
 								<a class="btn btn-success btn-xs af" onclick="emConstrucao()" href="#">Mais Info</a>
 								<a class="btn btn-warning btn-xs af"  onclick="emConstrucao()" href="#">Editar</a>
 
-								<a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#delete-modal">Excluir</a>
+								<a href="cliente.php?id=<?=$cliente->getIdCliente()?>" class="btn btn-danger btn-xs">Excluir</a>
 							</td>
 						</tr>
 
@@ -136,7 +136,7 @@
 	        		Deseja realmente excluir este Cliente?
 	      		</div>
 	      		<div class="modal-footer">
-	        		<a type="button"  class="btn btn-primary a" href="cliente.php?id=<?=$cliente->getIdCliente()?>">Sim</a>
+	        		<a type="button"  class="btn btn-primary a" >Sim</a>
 	 				<a type="button" class="btn btn-default a" data-dismiss="modal">N&atilde;o</a>
 	      		</div>
 	    	</div>

@@ -60,7 +60,7 @@
 								<a class="btn btn-success btn-xs af" onclick="emConstrucao()" href="#">Mais Info</a>
 								<a class="btn btn-warning btn-xs af"  onclick="emConstrucao()" href="#">Editar</a>
 
-								<a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#delete-modal">Excluir</a>
+								<a href="funcionario.php?id=<?=$funcionario-> getIdFuncionario()?>"" class="btn btn-danger btn-xs">Excluir</a>
 							</td>
 						</tr>
 
@@ -120,7 +120,8 @@
 	        		Deseja realmente excluir este funcionário?
 	      		</div>
 	      		<div class="modal-footer">
-	        		<a type="button"  class="btn btn-primary a" href="funcionario.php?id=<?=$funcionario-> getIdFuncionario()?>">Sim</a>
+	        	<!-- <a type="button"  class="btn btn-primary a" href="funcionario.php?id=<?=$funcionario-> getIdFuncionario()?>">Sim</a> !-->
+
 	 				<a type="button" class="btn btn-default a" data-dismiss="modal">N&atilde;o</a>
 	      		</div>
 	    	</div>
